@@ -26,7 +26,7 @@ body {
 }
 
 .primary-button {
-  @apply px-3 py-2 text-sm font-thin shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 uppercase;
+  @apply px-3 py-2 text-sm shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 uppercase;
   background-color: var(--primary-button-background);
   color: var(--primary-button-text);
   border-radius: var(--button-radius);
@@ -36,7 +36,7 @@ body {
   padding-bottom: var(--button-y-padding);}
 
 .secondary-button {
-  @apply px-3 py-2 text-sm font-thin shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 uppercase;
+  @apply px-3 py-2 text-sm shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 uppercase;
   background-color: var(--secondary-button-background);
   color: var(--secondary-button-text);
   border-radius: var(--button-radius);
@@ -55,6 +55,7 @@ body .content h5,
 body .content h6 {
   @apply leading-snug font-medium mb-6 mt-2;
   color: var(--website-heading-color, #000);
+  font-family: var(--heading-font)
 }
 
 .content h1 {
@@ -91,6 +92,11 @@ body .content h6 {
 
 .content li {
   @apply my-1;
+}
+
+body .content p strong {
+  color: var(--primary-accent)!important;
+  @apply font-semibold
 }
 
 .swiper-button-disabled {

@@ -51,8 +51,33 @@ export default defineType({
             type: 'boolean',
             hidden: ({ parent }) => parent?.layoutType === "banner" || parent?.layoutType === "ButtonRightTextLeft"
         },
+        {
+            title: 'Form Builder',
+            name: 'formBuilder',
+            type: 'formBuilder'
+        },
         primaryButton,
         secondaryButton,
+        {
+            title: 'Modal Button',
+            name: 'modalButton',
+            type: 'string'
+        },
+        {
+            title: 'Modal Button Link',
+            name: 'modalButtonLink',
+            type: 'string'
+        },
+        {
+            title: 'Modal Image',
+            name: 'modalImage',
+            type: 'image'
+        },
+        {
+            title: 'Modal Content',
+            name: 'modalContent',
+            type: 'contentEditor'
+        },
         colorOptions,
         paddingTop,
         paddingBottom,

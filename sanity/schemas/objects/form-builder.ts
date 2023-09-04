@@ -74,6 +74,11 @@ export default defineType({
                             validation: (Rule) => Rule.required().error('Name your input field'),
                         },
                         {
+                            title: 'Make Half Width',
+                            name: 'half',
+                            type: 'boolean'
+                        },
+                        {
                             title: 'Type',
                             name: 'type',
                             type: 'string',
@@ -91,6 +96,17 @@ export default defineType({
                                     // Add more field types as needed
                                 ],
                             },
+                        },
+                        {
+                            title: 'Display Inline',
+                            description: 'Makes button display next to field. Useful for newsletter or signups',
+                            name: 'inlineEmail',
+                            type: 'boolean',
+                        },
+                        {
+                            title: 'Hide Label',
+                            name: 'hideLabel',
+                            type: 'boolean',
                         },
                         {
                             title: 'Required',
@@ -139,6 +155,11 @@ export default defineType({
             title: 'Form Disclaimer',
             name: 'formDisclaimer',
             type: 'contentEditor',
+        },
+        {
+            title: 'Make Stacked',
+            name: 'makeStacked',
+            type: 'boolean',
         },
     ],
 })

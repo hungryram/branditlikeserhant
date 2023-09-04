@@ -28,9 +28,9 @@ export default function ContentSimple({
     return (
         <div className="content" style={allStyles}>
             <div className={`${layoutType === 'twoColumn' && 'container'}`}>
-                {layoutType === 'twoColumn' &&
+                {/* {layoutType === 'twoColumn' &&
                     <h2>{heading}</h2>
-                }
+                } */}
                 <div className={`mx-auto 
                 ${layoutType === 'simpleFullWidth' && 'container'}
                 ${layoutType === 'narrowContainer' && 'max-w-3xl'}

@@ -5,7 +5,7 @@ import './globals.css'
 import { appearance, mainLayoutProfile } from '../../../lib/groq-data'
 import { Metadata } from 'next';
 import GoogleAnalytics from './components/global/analytics'
-import { interFont } from '../fonts'
+import { HelveticaNue, HouseSlant, SignPainter, interFont } from '../fonts'
 import Pixel from './components/global/pixel'
 import NavbarWide from './components/global/navbar-wide'
 import Script from 'next/script'
@@ -128,13 +128,12 @@ export default async function RootLayout({
     enableTransparent: data?.appearances?.header?.enableTransparent,
   }
 
-
   return (
     <html lang="en">
       {data?.profileSettings?.settings?.googleID &&
         <GoogleAnalytics GA_TRACKING_ID={data?.profileSettings?.settings?.googleID} />
       }
-      <body className={interFont.variable}>
+      <body className={`${interFont.variable} ${HelveticaNue.variable} ${HouseSlant.variable}`}>
         {data?.profileSettings?.settings?.facebookPixel &&
           <Pixel
             facebookPixel={data?.profileSettings?.settings?.facebookPixel}

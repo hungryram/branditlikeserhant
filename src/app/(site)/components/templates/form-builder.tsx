@@ -8,11 +8,14 @@ interface FormField {
   label: string;
   type: any;
   _key: string;
-  radioValue: string[]
-  selectValue: string[]
-  checkBoxValue: string[]
-  required: boolean
-  stacked: boolean
+  radioValue: string[];
+  selectValue: string[];
+  checkBoxValue: string[];
+  required: boolean;
+  stacked: boolean;
+  inlineEmail: boolean;
+  hideLabel: boolean;
+  half: boolean
 }
 
 interface FormSchema {
@@ -27,6 +30,7 @@ interface FormSchema {
   buttonBackgroundColor: any;
   buttonTextColor: any;
   formDisclaimer: any
+  makeStacked: boolean;
 }
 
 interface FormBuilderProps {
@@ -46,21 +50,26 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
         <input className="hidden" type="hidden" name="subject" value={formSchema?.subject} />
         <input className="hidden" type="hidden" name="redirectTo" value={formSchema?.redirectTo} />
         {formSchema?.fields && (
-          <>
+          <div className="grid grid-cols-4 gap-x-2">
             {formSchema.fields.map((field, i) => {
               return (
-                <div key={field._key} className="mb-6">
-                  <label htmlFor={field.label.replace(/ /g, '') + i} className={Styles.formLabel}>
-                    {field.label}
-                    {field.required && <span>*</span>}
-                  </label>
+                <div className={field.half ? 'col-span-2' : 'col-span-4'} key={field._key}>
+                  {field?.hideLabel ?
+                    <></>
+                    :
+                    <label htmlFor={field.label.replace(/ /g, '') + i} className={Styles.formLabel}>
+                      {field.label}
+                      {field.required && <span>*</span>}
+                    </label>
+                  }
                   {field.type === 'text' && (
                     <input
                       type="text"
                       name={field.label}
-                      className={Styles.formDefaultInput}
+                      className={`${Styles.formDefaultInput} ${field?.inlineEmail ? 'flex-auto' : ''}`}
                       id={field.label.replace(/ /g, '') + i}
                       required={field.required ? true : undefined}
+                      placeholder={field?.hideLabel ? field?.label : ''}
                     />
                   )}
                   {field.type === 'file' && (
@@ -76,7 +85,8 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
                     <input
                       type="email"
                       name={field.label}
-                      className={Styles.formDefaultInput}
+                      className={`${Styles.formDefaultInput} ${field?.inlineEmail ? 'flex-auto' : ''}`}
+                      placeholder={field?.hideLabel ? field?.label : ''}
                       id={field.label.replace(/ /g, '') + i}
                       required={field.required ? true : undefined}
                     />
@@ -161,21 +171,23 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
                 </div>
               );
             })}
-          </>
+          </div>
         )}
         {formSchema?.formDisclaimer &&
-          <div className="mb-6 text-xs">
-            <ContentEditor 
+          <div className="mb-6 text-xs mt-4">
+            <ContentEditor
               content={formSchema?.formDisclaimer}
             />
           </div>
         }
-        <button type="submit" className="primary-button" style={{
-          backgroundColor: formSchema?.buttonBackgroundColor?.hex,
-          color: formSchema?.buttonTextColor?.hex
-        }}>
-          {formSchema?.buttonLabel ?? 'Submit'}
-        </button>
+        <div className="flex justify-end mt-4">
+          <button type="submit" className="primary-button ml-2 mb-2" style={{
+            backgroundColor: formSchema?.buttonBackgroundColor?.hex,
+            color: formSchema?.buttonTextColor?.hex
+          }}>
+            {formSchema?.buttonLabel ?? 'Submit'}
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -28,6 +28,7 @@ import HeroBasic from "./hero-basic";
 import DisclosureSeparate from "./disclosure-separate";
 import TestimonialsColumn from "./testimonials-column";
 import LeadFormTwoColumn from "./leadform-two-column";
+import FeaturedGridQuotes from "./featured-section-quote";
 
 interface Props {
     pageBuilder: any[];
@@ -286,6 +287,9 @@ export default function Main({
                                     reverseColumn={section?.reverseColumn}
                                     altText={section?.imageData?.asset?.altText}
                                     blurData={section?.imageData?.asset?.lqip}
+                                    modalButton={section?.modalButton}
+                                    modalImage={section?.modalImage}
+                                    modalContent={section?.modalContent}
                                     {...settingsSchema}
                                     textAlign={section?.textAlign}
                                 />
@@ -295,10 +299,13 @@ export default function Main({
                                     key={section?._key}
                                     image={section?.imageData?.asset?.url}
                                     content={section?.content}
+                                    modalButton={section?.modalButton}
                                     reverseColumn={section?.reverseColumn}
                                     altText={section?.imageData?.asset?.altText}
                                     blurData={section?.imageData?.asset?.lqip}
                                     textAlign={section?.textAlign}
+                                    modalImage={section?.modalImage}
+                                    modalContent={section?.modalContent}
                                     {...settingsSchema}
                                 />
                             }
@@ -429,6 +436,18 @@ export default function Main({
                             }
                             {section?.layoutType === 'featuredBox' &&
                                 <FeaturedGridBox
+                                    key={section?._key}
+                                    gridBackgroundColor={section?.gridBackgroundColor?.hex}
+                                    offsetTop={section?.offsetTop}
+                                    columnNumber={section?.columnNumber}
+                                    blocks={section?.childBlocks}
+                                    content={section?.content}
+                                    textAlign={section?.textAlign}
+                                    {...settingsSchema}
+                                />
+                            }
+                            {section?.layoutType === 'featuredQuotes' &&
+                                <FeaturedGridQuotes
                                     key={section?._key}
                                     gridBackgroundColor={section?.gridBackgroundColor?.hex}
                                     offsetTop={section?.offsetTop}
@@ -592,6 +611,9 @@ export default function Main({
                                     formSchema={section?.formBuilder}
                                     content={section?.content}
                                     textAlign={section?.textAlign}
+                                    image={section?.imageData?.asset?.url}
+                                    altText={section?.imageData?.asset?.altText}
+                                    blurData={section?.imageData?.asset?.lqip}
                                     {...settingsSchema}
                                 />
                             }

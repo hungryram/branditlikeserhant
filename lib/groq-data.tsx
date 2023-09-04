@@ -179,6 +179,13 @@ export const pageBuilderData = groq`
       'lqip': metadata.lqip,
       url
     }
+  },
+  'modal': modalImage {
+    asset-> {
+      'altText': altText,
+      'lqip': metadata.lqip,
+      url
+    }
   }
 },
 'childImage': images[] {

@@ -41,7 +41,6 @@ export default function LogoCloudSection({
 
     return (
         <div style={allStyles}>
-            <div className="container">
                 {(content || primaryButtonLink || secondaryButtonLink) && (
                     <HeaderSection
                         content={content}
@@ -64,8 +63,8 @@ export default function LogoCloudSection({
                                     className={Styles.logoImage}
                                     src={node?.asset?.url}
                                     alt={node?.asset?.altText}
-                                    width={200}
-                                    height={48}
+                                    width={600}
+                                    height={100}
                                     placeholder={node?.asset?.lqip ? 'blur' : 'empty'}
                                     blurDataURL={node?.asset?.lqip}
                                 />
@@ -74,7 +73,6 @@ export default function LogoCloudSection({
                     })
                     }
                 </div>
-            </div>
         </div>
     )
 }

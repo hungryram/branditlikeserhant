@@ -94,7 +94,7 @@ export default function Footer({
                     />
                   </div>
                   :
-                  <h3 className="uppercase font-semibold mb-4">{company_name}</h3>
+                  <h2 className="uppercase font-semibold mb-4">{company_name}</h2>
                 }
                 {shortText &&
                   <p className="text-sm leading-6">
@@ -240,31 +240,23 @@ export default function Footer({
                   </ul>
                 </div>
               }
-              {footerText &&
-                <div className="text-sm flex-1">
-                  <ContentEditor
-                    content={footerText}
-                  />
-                </div>
-              }
+            {footerDisclaimer &&
+              <div className="text text-xs my-2">
+                <ContentEditor
+                  content={footerDisclaimer}
+                />
+              </div>
+            }
             </div>
             :
             <div className="mx-auto max-w-7xl overflow-hidden text-center">
-              {image ?
-                <div className="flex justify-center mx-auto text-center">
-                  <Image
-                    src={image}
-                    width={200}
-                    height="50"
-                    alt={altText}
-                    className="mb-6 justify-center flex"
-                    placeholder={blurData ? 'blur' : 'empty'}
-                    blurDataURL={blurData}
-                  />
-                </div>
-                :
-                <h3 className="uppercase font-semibold mb-4">{company_name}</h3>
-              }
+            {footerDisclaimer &&
+              <div className="content my-2">
+                <ContentEditor
+                  content={footerDisclaimer}
+                />
+              </div>
+            }
               <div className="mt-6 flex justify-center flex-col">
                 <nav className="columns-2 sm:flex sm:justify-center sm:space-x-12">
                   {links?.map((link: any) => {
@@ -346,13 +338,6 @@ export default function Footer({
                     </a>
                   </div>
                 }
-              </div>
-            }
-            {footerDisclaimer &&
-              <div className="text text-xs my-2">
-                <ContentEditor
-                  content={footerDisclaimer}
-                />
               </div>
             }
             {legal &&

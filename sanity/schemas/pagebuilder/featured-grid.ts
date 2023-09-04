@@ -20,6 +20,7 @@ export default defineType({
                     { title: 'Grid with Colored Containers', value: 'featuredBox' },
                     { title: 'Grid with Image and Text Outside', value: 'gridWithImageOutside' },
                     { title: 'Grid with Image and Text Inside', value: 'gridWithTextInside' },
+                    { title: 'Featured Quotes', value: 'featuredQuotes' },
                 ]
             },
             initialValue: "featuredGridIcon"

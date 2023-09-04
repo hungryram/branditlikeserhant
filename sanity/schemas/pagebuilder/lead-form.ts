@@ -24,6 +24,11 @@ export default defineType({
 
     },
     {
+      title: 'Image',
+      name: 'image',
+      type: 'image',
+    },
+    {
       title: 'Content',
       name: 'content',
       type: 'contentEditor',
@@ -42,6 +47,7 @@ export default defineType({
     colorOptions,
     paddingTop,
     paddingBottom,
+
     {
       title: 'Form Builder',
       name: 'formBuilder',

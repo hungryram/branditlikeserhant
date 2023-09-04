@@ -11,8 +11,6 @@ export async function generateMetadata() {
 
     const hasServices = serviceMeta?.services?.length > 0;
 
-    console.log(serviceMeta.services.length)
-
     return {
         title: serviceMeta?.pageSetting?.services?.seo?.title_tag,
         description: serviceMeta?.pageSetting?.services?.seo?.meta_description,

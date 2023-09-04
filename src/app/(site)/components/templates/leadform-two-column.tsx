@@ -1,3 +1,4 @@
+import Image from "next/image";
 import FormBuilder from "./form-builder";
 import HeaderSection from "./header-section";
 
@@ -14,6 +15,9 @@ interface Props {
     formSchema: any;
     paddingTop: string;
     paddingBottom: string;
+    image: string;
+    altText: string;
+    blurData: string;
 }
 
 export default function LeadFormTwoColumn({
@@ -29,6 +33,9 @@ export default function LeadFormTwoColumn({
     formSchema,
     paddingTop,
     paddingBottom,
+    image,
+    altText,
+    blurData,
 }: Props) {
 
     const styles = {
@@ -41,7 +48,8 @@ export default function LeadFormTwoColumn({
     return (
         <div style={allStyles}>
             <div className="container">
-                <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
+                <div className="grid md:grid-cols-2 grid-cols-1 gap-10 items-center">
+                    <div>
                         {(content || primaryButtonLink || secondaryButtonLink) && (
                             <HeaderSection
                                 content={content}
@@ -61,6 +69,19 @@ export default function LeadFormTwoColumn({
                                 formSchema={formSchema}
                             />
                         </div>
+                    </div>
+                    <div>
+                        {image &&
+                            <Image
+                                src={image}
+                                alt={altText}
+                                placeholder={blurData ? 'blur' : 'empty'}
+                                blurDataURL={blurData}
+                                width={1824}
+                                height={1080}
+                            />
+                        }
+                    </div>
                 </div>
             </div>
         </div>
