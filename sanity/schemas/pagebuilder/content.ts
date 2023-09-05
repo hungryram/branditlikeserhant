@@ -19,6 +19,7 @@ export default defineType({
                     { title: "Simple Full Width", value: "simpleFullWidth" },
                     { title: "Narrow Container", value: "narrowContainer" },
                     { title: "Two Column", value: "twoColumn" },
+                    { title: "Custom Banner", value: "customBanner" },
                 ],
             },
             initialValue: "simpleFullWidth"

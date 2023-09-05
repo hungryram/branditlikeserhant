@@ -147,14 +147,6 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
-        <Script id="ihf-kestrel" src="https://kestrel.idxhome.com/ihf-kestrel.js" />
-        <Script id="ihfSCript">
-          {`window.ihfKestrel = window.ihfKestrel || {};
-	ihfKestrel.config = {
-		platform: "custom",
-		activationToken: "3779C949-155D-6043-0911FD9A208A875D",
-	};`}
-        </Script>
         <style>
           {`
               :root {
@@ -225,6 +217,7 @@ export default async function RootLayout({
           legal={data.legal}
           links={data.appearances?.footer?.quickLinks}
           secondLinks={data.appearances?.footer?.secondQuickLinks}
+          formSchema={data?.appearances?.footer?.formBuilder}
           // SOCIAL
           googleBusiness={data.profileSettings?.social?.googleBusiness}
           facebook={data.profileSettings?.social?.facebook}

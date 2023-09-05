@@ -29,6 +29,7 @@ import DisclosureSeparate from "./disclosure-separate";
 import TestimonialsColumn from "./testimonials-column";
 import LeadFormTwoColumn from "./leadform-two-column";
 import FeaturedGridQuotes from "./featured-section-quote";
+import CustomBanner from "./custom-banner";
 
 interface Props {
     pageBuilder: any[];
@@ -229,13 +230,22 @@ export default function Main({
 
                 if (section._type === 'contentField') {
                     return (
-                        <ContentSimple
-                            key={section?._key}
-                            content={section?.content}
-                            layoutType={section?.layoutType}
-                            heading={section?.heading}
-                            {...settingsSchema}
-                        />
+                        <>
+                            {section?.simpleFullWidth &&
+                                <ContentSimple
+                                    key={section?._key}
+                                    content={section?.content}
+                                    layoutType={section?.layoutType}
+                                    heading={section?.heading}
+                                    {...settingsSchema}
+                                />
+                            }
+                            {section?.layoutType === 'customBanner' &&
+                                <CustomBanner
+                                    key={section?._key}
+                                />
+                            }
+                        </>
                     );
                 }
 
@@ -477,6 +487,7 @@ export default function Main({
                                     {...settingsSchema}
                                 />
                             }
+
                             {section?.layoutType === 'fullWidth' &&
                                 <DisclosureSection
                                     key={section?._key}

@@ -40,7 +40,7 @@ interface FormBuilderProps {
 export default function FormBuilder({ formSchema }: FormBuilderProps) {
   return (
     <div className="py-2">
-      <form action={submitForm}>
+      <form action={submitForm} className="flex flex-wrap">
         <label className="hidden" htmlFor="name-honey" />
         <input className="hidden" type="text" name="name-honey" />
         <input className="hidden" type="hidden" name="bcc" value={formSchema?.emailBcc} />
@@ -50,7 +50,7 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
         <input className="hidden" type="hidden" name="subject" value={formSchema?.subject} />
         <input className="hidden" type="hidden" name="redirectTo" value={formSchema?.redirectTo} />
         {formSchema?.fields && (
-          <div className="grid grid-cols-4 gap-x-2">
+          <div className="flex items-center gap-2">
             {formSchema.fields.map((field, i) => {
               return (
                 <div className={field.half ? 'col-span-2' : 'col-span-4'} key={field._key}>
@@ -171,6 +171,14 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
                 </div>
               );
             })}
+            <div>
+              <button type="submit" className="primary-button" style={{
+                backgroundColor: formSchema?.buttonBackgroundColor?.hex,
+                color: formSchema?.buttonTextColor?.hex
+              }}>
+                {formSchema?.buttonLabel ?? 'Submit'}
+              </button>
+            </div>
           </div>
         )}
         {formSchema?.formDisclaimer &&
@@ -180,14 +188,6 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
             />
           </div>
         }
-        <div className="flex justify-end mt-4">
-          <button type="submit" className="primary-button ml-2 mb-2" style={{
-            backgroundColor: formSchema?.buttonBackgroundColor?.hex,
-            color: formSchema?.buttonTextColor?.hex
-          }}>
-            {formSchema?.buttonLabel ?? 'Submit'}
-          </button>
-        </div>
       </form>
     </div>
   );

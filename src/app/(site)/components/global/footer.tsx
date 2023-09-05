@@ -3,6 +3,7 @@ import Image from "next/image"
 import Social from "../templates/social"
 import ContentEditor from "../util/content-editor"
 import Styles from './footer.module.css'
+import FormBuilder from "../templates/form-builder"
 
 interface Props {
   company_name: string
@@ -36,7 +37,9 @@ interface Props {
   quickLinksTwoHeading: string;
   footerText: any;
   shortText: string;
-  singleColumn: boolean
+  singleColumn: boolean;
+  formSchema: any;
+
 }
 
 export default function Footer({
@@ -72,7 +75,8 @@ export default function Footer({
   secondLinks,
   footerText,
   shortText,
-  singleColumn
+  singleColumn,
+  formSchema
 }: Props) {
   return (
     <footer className={Styles.footer} aria-labelledby="footer-heading">
@@ -240,25 +244,30 @@ export default function Footer({
                   </ul>
                 </div>
               }
-            {footerDisclaimer &&
-              <div className="text text-xs my-2">
-                <ContentEditor
-                  content={footerDisclaimer}
-                />
-              </div>
-            }
+              {footerDisclaimer &&
+                <div className="text text-xs my-2">
+                  <ContentEditor
+                    content={footerDisclaimer}
+                  />
+                </div>
+              }
             </div>
             :
             <div className="mx-auto max-w-7xl overflow-hidden text-center">
-            {footerDisclaimer &&
-              <div className="content my-2">
-                <ContentEditor
-                  content={footerDisclaimer}
-                />
-              </div>
-            }
+              {footerDisclaimer &&
+                <div className="content my-2">
+                  <ContentEditor
+                    content={footerDisclaimer}
+                  />
+                </div>
+              }
               <div className="mt-6 flex justify-center flex-col">
-                <nav className="columns-2 sm:flex sm:justify-center sm:space-x-12">
+                <div className="w-1/2 mx-auto mb-10">
+                  <FormBuilder
+                    formSchema={formSchema}
+                  />
+                </div>
+                <nav className="columns-2 sm:flex sm:justify-center sm:space-x-12 mt-10">
                   {links?.map((link: any) => {
                     const quickLinks = (link.internalLink?._type === "pages" && `/${link.internalLink.slug}`) ||
                       (link.internalLink?._type === "blog" && `/blog/${link.internalLink.slug}`) ||

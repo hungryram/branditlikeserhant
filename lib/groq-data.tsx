@@ -85,6 +85,11 @@ export const appearance = groq`
       footerDisclaimer,
       shortText,
       quickLinksHeading,
+      formBuilder {
+        fields[] {
+          ...
+        }
+      },
       quickLinksTwoHeading,
       'footerLogo': footerLogo {
         asset->{
