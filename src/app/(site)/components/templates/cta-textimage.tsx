@@ -57,14 +57,14 @@ export default function CalltoActionTextImage({
 
     const allStyles = { ...backgroundStyles, ...styles }
 
-    let [isOpen, setIsOpen] = useState(true)
+    let [isOpen, setIsOpen] = useState(false)
 
     function closeModal() {
       setIsOpen(false)
     }
   
     function openModal() {
-      setIsOpen(false)
+      setIsOpen(true)
     }
 
     return (
