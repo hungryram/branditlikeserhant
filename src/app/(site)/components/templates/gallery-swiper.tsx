@@ -173,6 +173,8 @@ const GallerySwiper = ({
                                 width={1000}
                                 height={800}
                                 className={`w-full object-cover ${slideNumber === 1 ? 'md:h-[80vh] h-96' : 'h-96'}`}
+                                placeholder={image?.asset?.lqip ? 'blur' : 'empty'}
+                                blurDataURL={image?.asset?.lqip}
                             />
                         </SwiperSlide>
                     ))}
