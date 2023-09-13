@@ -20,6 +20,7 @@ export default defineType({
                     { title: "Text and Image", value: "textAndImage" },
                     { title: "Left Text with Right Buttons", value: "ButtonRightTextLeft" },
                     { title: "Full Width Text & Image", value: "fullWidthTextImage" },
+                    { title: "Call to Action Custom", value: "ctaCustom" },
                 ],
             },
             initialValue: "banner"
@@ -46,15 +47,31 @@ export default defineType({
             hidden: ({ parent }) => parent?.layoutType === "banner" || parent?.layoutType === "ButtonRightTextLeft"
         },
         {
-            title: 'Reverse Column',
-            name: 'reverseColumn',
-            type: 'boolean',
-            hidden: ({ parent }) => parent?.layoutType === "banner" || parent?.layoutType === "ButtonRightTextLeft"
+            title: 'Step 1 Content',
+            name: 'stepOnecontent',
+            type: 'contentEditor',
+            group: 'content',
+            hidden: ({ parent }) => parent?.layoutType !== 'ctaCustom'
+        },
+        {
+            title: 'Step 2 Content',
+            name: 'stepTwocontent',
+            type: 'contentEditor',
+            group: 'content',
+            hidden: ({ parent }) => parent?.layoutType !== 'ctaCustom'
         },
         {
             title: 'Form Builder',
             name: 'formBuilder',
-            type: 'formBuilder'
+            type: 'formBuilder',
+            group: 'content',
+            hidden: ({ parent }) => parent?.layoutType !== 'ctaCustom'
+        },
+        {
+            title: 'Reverse Column',
+            name: 'reverseColumn',
+            type: 'boolean',
+            hidden: ({ parent }) => parent?.layoutType === "banner" || parent?.layoutType === "ButtonRightTextLeft"
         },
         primaryButton,
         secondaryButton,

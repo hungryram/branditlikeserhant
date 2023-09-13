@@ -8,14 +8,11 @@ interface FormField {
   label: string;
   type: any;
   _key: string;
-  radioValue: string[];
-  selectValue: string[];
-  checkBoxValue: string[];
-  required: boolean;
-  stacked: boolean;
-  inlineEmail: boolean;
-  hideLabel: boolean;
-  half: boolean
+  radioValue: string[]
+  selectValue: string[]
+  checkBoxValue: string[]
+  required: boolean
+  stacked: boolean
 }
 
 interface FormSchema {
@@ -30,7 +27,6 @@ interface FormSchema {
   buttonBackgroundColor: any;
   buttonTextColor: any;
   formDisclaimer: any
-  makeStacked: boolean;
 }
 
 interface FormBuilderProps {
@@ -40,7 +36,7 @@ interface FormBuilderProps {
 export default function FormBuilder({ formSchema }: FormBuilderProps) {
   return (
     <div className="py-2">
-      <form action={submitForm} className="flex flex-wrap">
+      <form action={submitForm}>
         <label className="hidden" htmlFor="name-honey" />
         <input className="hidden" type="text" name="name-honey" />
         <input className="hidden" type="hidden" name="bcc" value={formSchema?.emailBcc} />
@@ -50,26 +46,21 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
         <input className="hidden" type="hidden" name="subject" value={formSchema?.subject} />
         <input className="hidden" type="hidden" name="redirectTo" value={formSchema?.redirectTo} />
         {formSchema?.fields && (
-          <div className="flex items-center gap-2">
+          <>
             {formSchema.fields.map((field, i) => {
               return (
-                <div className={field.half ? 'col-span-2' : 'col-span-4'} key={field._key}>
-                  {field?.hideLabel ?
-                    <></>
-                    :
-                    <label htmlFor={field.label.replace(/ /g, '') + i} className={Styles.formLabel}>
-                      {field.label}
-                      {field.required && <span>*</span>}
-                    </label>
-                  }
+                <div key={field._key} className="mb-6">
+                  <label htmlFor={field.label.replace(/ /g, '') + i} className={Styles.formLabel}>
+                    {field.label}
+                    {field.required && <span>*</span>}
+                  </label>
                   {field.type === 'text' && (
                     <input
                       type="text"
                       name={field.label}
-                      className={`${Styles.formDefaultInput} ${field?.inlineEmail ? 'flex-auto' : ''}`}
+                      className={Styles.formDefaultInput}
                       id={field.label.replace(/ /g, '') + i}
                       required={field.required ? true : undefined}
-                      placeholder={field?.hideLabel ? field?.label : ''}
                     />
                   )}
                   {field.type === 'file' && (
@@ -85,8 +76,7 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
                     <input
                       type="email"
                       name={field.label}
-                      className={`${Styles.formDefaultInput} ${field?.inlineEmail ? 'flex-auto' : ''}`}
-                      placeholder={field?.hideLabel ? field?.label : ''}
+                      className={Styles.formDefaultInput}
                       id={field.label.replace(/ /g, '') + i}
                       required={field.required ? true : undefined}
                     />
@@ -171,23 +161,21 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
                 </div>
               );
             })}
-            <div>
-              <button type="submit" className="primary-button" style={{
-                backgroundColor: formSchema?.buttonBackgroundColor?.hex,
-                color: formSchema?.buttonTextColor?.hex
-              }}>
-                {formSchema?.buttonLabel ?? 'Submit'}
-              </button>
-            </div>
-          </div>
+          </>
         )}
         {formSchema?.formDisclaimer &&
-          <div className="mb-6 text-xs mt-4">
-            <ContentEditor
+          <div className="mb-6 text-xs">
+            <ContentEditor 
               content={formSchema?.formDisclaimer}
             />
           </div>
         }
+        <button type="submit" className="primary-button" style={{
+          backgroundColor: formSchema?.buttonBackgroundColor?.hex,
+          color: formSchema?.buttonTextColor?.hex
+        }}>
+          {formSchema?.buttonLabel ?? 'Submit'}
+        </button>
       </form>
     </div>
   );

@@ -262,11 +262,11 @@ export default function Footer({
                 </div>
               }
               <div className="mt-6 flex justify-center flex-col">
-                <div className="w-1/2 mx-auto mb-10">
+                {/* <div className="w-1/2 mx-auto mb-10">
                   <FormBuilder
                     formSchema={formSchema}
                   />
-                </div>
+                </div> */}
                 <nav className="columns-2 sm:flex sm:justify-center sm:space-x-12 mt-10">
                   {links?.map((link: any) => {
                     const quickLinks = (link.internalLink?._type === "pages" && `/${link.internalLink.slug}`) ||

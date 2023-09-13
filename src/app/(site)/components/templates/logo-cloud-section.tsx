@@ -55,7 +55,7 @@ export default function LogoCloudSection({
                         secondaryButtonStyle={secondaryButtonStyle}
                     />
                 )}
-                <div className={`${Styles.gridWrapper} ${content && 'mt-12'}`}>
+                <div className={`${Styles.gridWrapper} ${content && 'mt-12'} px-4`}>
                     {images && images?.map((node: any, i: number) => {
                         return (
                             <div key={i}>

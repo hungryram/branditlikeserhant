@@ -22,12 +22,28 @@ const serializers = {
         image: ({ value }) => {
             return (
                 <div className={
-                    `relative flex ${value.imageAlign == 'left' && 'justify-start' || value.imageAlign == 'center' && 'justify-center' || value.imageAlign =='right' && 'justify-end'}`
+                    `relative flex ${value.imageAlign == 'left' && 'justify-start' || value.imageAlign == 'center' && 'justify-center' || value.imageAlign == 'right' && 'justify-end'}`
                 }>
-                        <img src={value.asset !== undefined && urlForImage(value).url()} alt={value.altTag} width={value.imageWidth} className="my-10"/>
+                    <img src={value.asset !== undefined && urlForImage(value).url()} alt={value.altTag} width={value.imageWidth} className="my-10 mx-4" />
                 </div>
             )
         },
+        ctaButton: ({ value, children }) => {
+            return (
+                <div className="my-6">
+                    <a href={value.buttonLink} target="_blank" className="primary-button">{value.buttonText}</a>
+                </div>
+            )
+        },
+        imageLink: ({ value, children }) => {
+            return (
+                <div className="my-6">
+                    <a href={value.buttonLink} target="_blank">
+                        <img src={urlForImage(value.image).url()} alt={value.altTag} width={150} className="my-6 mx-auto" />
+                    </a>
+                </div>
+            )
+        }
     },
     marks: {
         link: ({ value, children }) => {

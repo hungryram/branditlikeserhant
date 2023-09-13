@@ -30,6 +30,7 @@ import TestimonialsColumn from "./testimonials-column";
 import LeadFormTwoColumn from "./leadform-two-column";
 import FeaturedGridQuotes from "./featured-section-quote";
 import CustomBanner from "./custom-banner";
+import CalltoActionCustom from "./cta-custom";
 
 interface Props {
     pageBuilder: any[];
@@ -300,6 +301,24 @@ export default function Main({
                                     modalButton={section?.modalButton}
                                     modalImage={section?.modalImage}
                                     modalContent={section?.modalContent}
+                                    {...settingsSchema}
+                                    textAlign={section?.textAlign}
+                                />
+                            }
+                            {section.layoutType === 'ctaCustom' &&
+                                <CalltoActionCustom
+                                    key={section?._key}
+                                    image={section?.imageData?.asset?.url}
+                                    content={section?.content}
+                                    reverseColumn={section?.reverseColumn}
+                                    stepOneContent={section?.stepOnecontent}
+                                    stepTwoContent={section?.stepTwocontent}
+                                    altText={section?.imageData?.asset?.altText}
+                                    blurData={section?.imageData?.asset?.lqip}
+                                    modalButton={section?.modalButton}
+                                    modalImage={section?.modalImage}
+                                    modalContent={section?.modalContent}
+                                    formSchema={section?.formBuilder}
                                     {...settingsSchema}
                                     textAlign={section?.textAlign}
                                 />

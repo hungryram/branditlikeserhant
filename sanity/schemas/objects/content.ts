@@ -100,6 +100,40 @@ import { AiOutlineFontColors } from "react-icons/ai"
           },
         ]
       },
+      {
+        title: 'Call to Action',
+        name: 'ctaButton',
+        type: 'object',
+        fields: [
+          {
+            title: 'Button Text',
+            name: 'buttonText',
+            type: 'string'
+          },
+          {
+            title: 'Button Link',
+            name: 'buttonLink',
+            type: 'string'
+          }
+        ]
+      },
+      {
+        title: 'Image Link',
+        name: 'imageLink',
+        type: 'object',
+        fields: [
+          {
+            title: 'Image',
+            name: 'image',
+            type: 'image'
+          },
+          {
+            title: 'Button Link',
+            name: 'buttonLink',
+            type: 'string'
+          }
+        ]
+      },
       {type: 'youtube'},
       {type: 'coding'},
     ],
