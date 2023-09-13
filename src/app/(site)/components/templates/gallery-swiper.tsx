@@ -94,7 +94,7 @@ const GallerySwiper = ({
 
     return (
         <div style={allStyles}>
-            <div className="container">
+            <div>
                 {(content || primaryButtonLink || secondaryButtonLink) && (
                     <HeaderSection
                         content={content}
@@ -128,6 +128,9 @@ const GallerySwiper = ({
                         nextSlideMessage: 'Next slide',
                         firstSlideMessage: 'This is the first slide',
                         lastSlideMessage: 'This is the last slide',
+                    }}
+                    autoplay={{
+                        delay: 3000
                     }}
                     breakpoints={{
                         // When window width is >= 1024px (desktop)
