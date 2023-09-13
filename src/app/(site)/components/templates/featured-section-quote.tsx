@@ -65,9 +65,7 @@ export default function FeaturedGridQuotes({
                     />
                 )}
                 <div className={Styles.featureGridWrap}>
-                    <dl className={`grid rounded-sm grid-cols-1 lg:grid-cols-${columnNumber} gap-10 ${content && 'mt-16'}`} style={{
-                        backgroundColor: gridBackgroundColor
-                    }}>
+                    <dl className={`grid rounded-sm grid-cols-1 lg:grid-cols-${columnNumber} gap-10 ${content && 'mt-16'}`}>
                         {blocks?.map((node: any) => {
                             return (
                                 <blockquote className="mt-6 md:flex md:flex-grow md:flex-col shadow-lg p-10 relative" key={node?._key} style={{

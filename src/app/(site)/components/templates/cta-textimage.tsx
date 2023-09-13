@@ -60,11 +60,11 @@ export default function CalltoActionTextImage({
     let [isOpen, setIsOpen] = useState(false)
 
     function closeModal() {
-      setIsOpen(false)
+        setIsOpen(false)
     }
-  
+
     function openModal() {
-      setIsOpen(true)
+        setIsOpen(true)
     }
 
     return (
@@ -86,75 +86,75 @@ export default function CalltoActionTextImage({
                                 secondaryButtonStyle={secondaryButtonStyle}
                             />
                         )}
-                    {modalButton &&
-                        <>
-                            <div className="mt-10">
-                                <button
-                                    type="button"
-                                    onClick={openModal}
-                                    className="primary-button"
-                                >
-                                    {modalButton}
-                                </button>
-                            </div>
-                            <Transition appear show={isOpen} as={Fragment}>
-                                <Dialog as="div" className="relative z-10" onClose={closeModal}>
-                                    <Transition.Child
-                                        as={Fragment}
-                                        enter="ease-out duration-300"
-                                        enterFrom="opacity-0"
-                                        enterTo="opacity-100"
-                                        leave="ease-in duration-200"
-                                        leaveFrom="opacity-100"
-                                        leaveTo="opacity-0"
+                        {modalButton &&
+                            <>
+                                <div className="mt-10">
+                                    <button
+                                        type="button"
+                                        onClick={openModal}
+                                        className="primary-button"
                                     >
-                                        <div className="fixed inset-0 bg-black bg-opacity-25" />
-                                    </Transition.Child>
+                                        {modalButton}
+                                    </button>
+                                </div>
+                                <Transition appear show={isOpen} as={Fragment}>
+                                    <Dialog as="div" className="relative z-10" onClose={closeModal}>
+                                        <Transition.Child
+                                            as={Fragment}
+                                            enter="ease-out duration-300"
+                                            enterFrom="opacity-0"
+                                            enterTo="opacity-100"
+                                            leave="ease-in duration-200"
+                                            leaveFrom="opacity-100"
+                                            leaveTo="opacity-0"
+                                        >
+                                            <div className="fixed inset-0 bg-black bg-opacity-25" />
+                                        </Transition.Child>
 
-                                    <div className="fixed inset-0 overflow-y-auto">
-                                        <div className="flex min-h-full items-center justify-center text-center">
-                                            <Transition.Child
-                                                as={Fragment}
-                                                enter="ease-out duration-300"
-                                                enterFrom="opacity-0 scale-95"
-                                                enterTo="opacity-100 scale-100"
-                                                leave="ease-in duration-200"
-                                                leaveFrom="opacity-100 scale-100"
-                                                leaveTo="opacity-0 scale-95"
-                                            >
-                                                <Dialog.Panel className="md:w-1/2 w-full p-4 transform overflow-hidden text-left align-middle shadow-xl transition-all">
-                                                    <div className="bg-[#046ABE] md:flex justify-center">
-                                                        <div className="overflow-hidden bg-[#046ABE] md:w-1/3 relative md:h-auto h-96">
-                                                            <Image
-                                                                className="h-full w-full object-cover object-center"
-                                                                src={urlForImage(modalImage).url()}
-                                                                alt={altText}
-                                                                fill={true}
-                                                            />
-                                                        </div>
-                                                        <div className="md:w-2/3 text-white">
-                                                            <div className="relative mx-auto py-24 sm:py-32 lg:py-40 lg:px-32 px-4">
-                                                                <div className="content">
-                                                                    {modalContent &&
-                                                                        <ContentEditor
-                                                                            content={modalContent}
-                                                                        />
-                                                                    }
+                                        <div className="fixed inset-0 overflow-y-auto">
+                                            <div className="flex min-h-full items-center justify-center text-center">
+                                                <Transition.Child
+                                                    as={Fragment}
+                                                    enter="ease-out duration-300"
+                                                    enterFrom="opacity-0 scale-95"
+                                                    enterTo="opacity-100 scale-100"
+                                                    leave="ease-in duration-200"
+                                                    leaveFrom="opacity-100 scale-100"
+                                                    leaveTo="opacity-0 scale-95"
+                                                >
+                                                    <Dialog.Panel className="md:w-1/2 w-full p-4 transform overflow-hidden text-left align-middle shadow-xl transition-all">
+                                                        <div className="bg-[#046ABE] md:flex justify-center">
+                                                            <div className="overflow-hidden bg-[#046ABE] md:w-1/3 relative md:h-auto h-96">
+                                                                <Image
+                                                                    className="h-full w-full object-cover object-center"
+                                                                    src={urlForImage(modalImage).url()}
+                                                                    alt={altText}
+                                                                    fill={true}
+                                                                />
+                                                            </div>
+                                                            <div className="md:w-2/3 text-white">
+                                                                <div className="relative mx-auto py-24 sm:py-32 lg:py-40 lg:px-32 px-4">
+                                                                    <div className="content">
+                                                                        {modalContent &&
+                                                                            <ContentEditor
+                                                                                content={modalContent}
+                                                                            />
+                                                                        }
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </Dialog.Panel>
-                                            </Transition.Child>
+                                                    </Dialog.Panel>
+                                                </Transition.Child>
+                                            </div>
                                         </div>
-                                    </div>
-                                </Dialog>
-                            </Transition>
-                        </>
-                    }
+                                    </Dialog>
+                                </Transition>
+                            </>
+                        }
                     </div>
-                    <div className="lg:w-1/2">
-                        {image ?
+                    <div className="lg:w-1/2 relative">
+                        {image &&
                             <Image
                                 src={image}
                                 alt={altText}
@@ -162,10 +162,16 @@ export default function CalltoActionTextImage({
                                 blurDataURL={blurData}
                                 width={1824}
                                 height={1080}
+                                className="relative z-50"
                             />
-                            :
-                            <img src={ctaData.image} alt="placeholder" />
                         }
+                        <div className="absolute inset-x-00 bottom-1/3 z-10 transform-gpu left-0 right-0 flex justify-center" aria-hidden="true">
+                            <div>
+                                <div
+                                    className="md:w-[28rem] w-96 h-52 rounded-full bg-gradient-to-tr from-[#181e2e] to-[#10193a] opacity-80 backdrop-filter blur-2xl"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

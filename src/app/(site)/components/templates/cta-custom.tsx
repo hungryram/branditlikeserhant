@@ -76,7 +76,7 @@ export default function CalltoActionCustom({
         <div style={allStyles} id={id}>
             <div className="container">
                 <div>
-                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div>
                         <div className="mx-auto max-w-4xl sm:text-center">
                             {(content || primaryButtonLink || secondaryButtonLink) && (
                                 <HeaderSection
@@ -107,7 +107,7 @@ export default function CalltoActionCustom({
                                         }
                                     </div>
                                 </div>
-                                <div className="p-10">
+                                <div className="md:p-10 p-4">
                                     <div className="w-8 h-8 border-[#264495] border-2 rounded-full flex items-center justify-center text-[#264495] mx-auto">
                                         <span>2</span>
                                     </div>

@@ -80,7 +80,7 @@ export default function Footer({
 }: Props) {
   return (
     <footer className={Styles.footer} aria-labelledby="footer-heading">
-      <div className="section">
+      <div className="pt-20 pb-10">
         <div className="container">
           {singleColumn !== true ?
             <div className={`lg:flex md:grid md:grid-cols-3 grid-cols-1 xl:gap-8 gap-y-10 space-y-10 items-baseline`}>
