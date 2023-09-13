@@ -21,6 +21,7 @@ export default defineType({
                     { title: 'Grid with Image and Text Outside', value: 'gridWithImageOutside' },
                     { title: 'Grid with Image and Text Inside', value: 'gridWithTextInside' },
                     { title: 'Featured Quotes', value: 'featuredQuotes' },
+                    { title: 'Featured Interview', value: 'featuredInterview' },
                 ]
             },
             initialValue: "featuredGridIcon"

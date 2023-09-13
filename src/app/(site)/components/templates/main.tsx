@@ -31,6 +31,7 @@ import LeadFormTwoColumn from "./leadform-two-column";
 import FeaturedGridQuotes from "./featured-section-quote";
 import CustomBanner from "./custom-banner";
 import CalltoActionCustom from "./cta-custom";
+import FeaturedInterview from "./featured-interview";
 
 interface Props {
     pageBuilder: any[];
@@ -478,6 +479,18 @@ export default function Main({
                             }
                             {section?.layoutType === 'featuredQuotes' &&
                                 <FeaturedGridQuotes
+                                    key={section?._key}
+                                    gridBackgroundColor={section?.gridBackgroundColor?.hex}
+                                    offsetTop={section?.offsetTop}
+                                    columnNumber={section?.columnNumber}
+                                    blocks={section?.childBlocks}
+                                    content={section?.content}
+                                    textAlign={section?.textAlign}
+                                    {...settingsSchema}
+                                />
+                            }
+                            {section?.layoutType === 'featuredInterview' &&
+                                <FeaturedInterview
                                     key={section?._key}
                                     gridBackgroundColor={section?.gridBackgroundColor?.hex}
                                     offsetTop={section?.offsetTop}
