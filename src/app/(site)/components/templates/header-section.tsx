@@ -39,7 +39,7 @@ export default function HeaderSection({
         ${textAlign === 'right' && 'text-right justify-end'}
         `}>
           <ContentEditor content={content} />
-          <div className={`mt-10 flex items-center gap-x-6 ${textAlign}`}>
+          <div className={`mt-10 flex items-center gap-x-6 ${textAlign === 'left' && 'text-left max-w-4xl'} ${textAlign === 'center' && 'mx-auto text-center max-w-4xl justify-center'} ${textAlign === 'right' && 'text-right justify-end'}`}>
             {primaryButtonLinking && (
               <Link href={primaryButtonLinking} className="primary-button" style={primaryButtonStyle}>
                 {primaryButtonText}
