@@ -69,20 +69,15 @@ export default function FeaturedInterview({
                         {blocks?.map((node: any) => {
                             return (
                                 <figure className="mx-auto max-w-2xl">
-                                    <blockquote className="mt-10 text-lg font-semibold leading-8 tracking-tight text-gray-900 sm:leading-9">
-                                        <p>
-                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio, ab. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, delectus!
-                                        </p>
-                                    </blockquote>
-                                    <figcaption className="mt-10 flex items-center gap-x-6">
+                                    <figcaption className="mt-10 flex items-center gap-x-6 flex-col">
                                         <img
-                                            className="h-12 w-12 rounded-full bg-gray-50"
+                                            className="h-32 w-32 rounded-full bg-gray-50"
                                             src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=1024&h=1024&q=80"
                                             alt=""
                                         />
-                                        <div className="text-sm leading-6">
-                                            <div className="font-semibold text-gray-900">Name Interview</div>
-                                            <div className="mt-0.5 text-gray-600">subtitle position</div>
+                                        <div className="text-sm leading-6 mt-6 text-center">
+                                            <div className="font-semibold text-gray-900">Interview Title</div>
+                                            <div className="mt-0.5 text-gray-600">Name</div>
                                         </div>
                                     </figcaption>
                                 </figure>
