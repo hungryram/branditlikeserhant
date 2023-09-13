@@ -168,7 +168,7 @@ export default function CalltoActionTextImage({
                         <div className="absolute inset-x-00 bottom-1/3 z-10 transform-gpu left-0 right-0 flex justify-center" aria-hidden="true">
                             <div>
                                 <div
-                                    className="md:w-[28rem] w-96 h-52 rounded-full bg-gradient-to-tr from-[#181e2e] to-[#10193a] opacity-80 backdrop-filter blur-2xl"
+                                    className="md:w-[28rem] w-60 h-52 rounded-full bg-gradient-to-tr from-[#181e2e] to-[#10193a] opacity-80 backdrop-filter blur-2xl"
                                 />
                             </div>
                         </div>
