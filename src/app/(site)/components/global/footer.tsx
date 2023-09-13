@@ -267,7 +267,7 @@ export default function Footer({
                     formSchema={formSchema}
                   />
                 </div> */}
-                <nav className="columns-2 sm:flex sm:justify-center sm:space-x-12 mt-10">
+                <nav className="columns-2 sm:flex sm:justify-center mx-auto sm:space-x-12 mt-10">
                   {links?.map((link: any) => {
                     const quickLinks = (link.internalLink?._type === "pages" && `/${link.internalLink.slug}`) ||
                       (link.internalLink?._type === "blog" && `/blog/${link.internalLink.slug}`) ||
@@ -303,9 +303,9 @@ export default function Footer({
               </div>
             </div>
           }
-          <div className="border-t border-white/10 pt-8 mt-12">
+          <div className="border-t border-white/10 pt-8 mx-auto text-center">
             {singleColumn &&
-              <div className="leading-7 md:flex items-center text-sm md:space-x-10">
+              <div className="leading-7 md:flex items-center justify-center text-center text-sm md:space-x-10">
                 {address || city || state || zip_code ? (
                   <div className="space-x-2">
                     <span>Address:</span>

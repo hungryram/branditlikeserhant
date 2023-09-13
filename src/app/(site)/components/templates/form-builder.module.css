@@ -3,7 +3,7 @@
 }
 
 .formDefaultInput {
-    @apply border rounded-sm px-3 py-2 w-full bg-white;
+    @apply border rounded-sm px-3 py-2 w-full bg-[#94C5E9];
     border-color: #ccc;
 }
 

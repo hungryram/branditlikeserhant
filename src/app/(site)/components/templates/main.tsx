@@ -319,6 +319,7 @@ export default function Main({
                                     modalImage={section?.modalImage}
                                     modalContent={section?.modalContent}
                                     formSchema={section?.formBuilder}
+                                    id={section?.id}
                                     {...settingsSchema}
                                     textAlign={section?.textAlign}
                                 />

@@ -95,6 +95,11 @@ export default defineType({
             name: 'modalContent',
             type: 'contentEditor'
         },
+        {
+            title: 'ID',
+            name: 'id',
+            type: 'string'
+        },
         colorOptions,
         paddingTop,
         paddingBottom,

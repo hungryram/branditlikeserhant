@@ -41,7 +41,7 @@ export default function HeaderSection({
           <ContentEditor content={content} />
           <div className={`mt-10 flex items-center gap-x-6 ${textAlign}`}>
             {primaryButtonLinking && (
-              <Link href={primaryButtonLinking} className="primary-button" style={primaryButtonStyle} target={buttonLink?.externalUrl && '_blank'}>
+              <Link href={primaryButtonLinking} className="primary-button" style={primaryButtonStyle}>
                 {primaryButtonText}
               </Link>
             )}

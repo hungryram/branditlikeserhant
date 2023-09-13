@@ -27,6 +27,7 @@ interface Props {
     stepOneContent: any;
     stepTwoContent: any;
     formSchema: any;
+    id: string;
 }
 
 export default function CalltoActionCustom({
@@ -50,7 +51,8 @@ export default function CalltoActionCustom({
     modalContent,
     stepOneContent,
     stepTwoContent,
-    formSchema
+    formSchema,
+    id
 }: Props) {
 
     const styles = {
@@ -71,7 +73,7 @@ export default function CalltoActionCustom({
     }
 
     return (
-        <div style={allStyles}>
+        <div style={allStyles} id={id}>
             <div className="container">
                 <div>
                     <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -92,7 +94,7 @@ export default function CalltoActionCustom({
                             )}
                         </div>
                         <div className="mt-20 flow-root">
-                            <div className="isolate -mt-16 grid max-w-sm grid-cols-1 gap-y-16 divide-y divide-gray-100 sm:mx-auto lg:mt-0 lg:max-w-none lg:grid-cols-2 lg:divide-x lg:divide-y-0 bg-white justify-center">
+                            <div className="isolate content -mt-16 grid max-w-sm grid-cols-1 gap-y-16 divide-y divide-gray-100 sm:mx-auto lg:mt-0 lg:max-w-none lg:grid-cols-2 lg:divide-x lg:divide-y-0 bg-white justify-center">
                                 <div className="p-10">
                                     <div className="w-8 h-8 border-[#264495] border-2 rounded-full flex items-center justify-center text-[#264495] mx-auto">
                                         <span>1</span>
@@ -111,13 +113,17 @@ export default function CalltoActionCustom({
                                     </div>
                                     <div className="mt-6">
                                         {stepTwoContent &&
-                                            <ContentEditor
-                                                content={stepTwoContent}
-                                            />
+                                            <div className="text-center">
+                                                <ContentEditor
+                                                    content={stepTwoContent}
+                                                />
+                                            </div>
                                         }
-                                        <FormBuilder
-                                            formSchema={formSchema}
-                                        />
+                                        <div className="mt-6">
+                                            <FormBuilder
+                                                formSchema={formSchema}
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>

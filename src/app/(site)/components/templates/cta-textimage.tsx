@@ -88,7 +88,7 @@ export default function CalltoActionTextImage({
                         )}
                     {modalButton &&
                         <>
-                            <div>
+                            <div className="mt-10">
                                 <button
                                     type="button"
                                     onClick={openModal}

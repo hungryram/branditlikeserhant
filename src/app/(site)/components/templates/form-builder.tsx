@@ -49,7 +49,7 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
           <>
             {formSchema.fields.map((field, i) => {
               return (
-                <div key={field._key} className="mb-6">
+                <div key={field._key} className="mb-3">
                   <label htmlFor={field.label.replace(/ /g, '') + i} className={Styles.formLabel}>
                     {field.label}
                     {field.required && <span>*</span>}
@@ -91,7 +91,7 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
                     />
                   )}
                   {field.type === 'radio' && (
-                    <div className={`gap-x-6 mt-4 ${field?.stacked ? '' : 'flex items-center'}`}>
+                    <div className={`gap-x-6 mt-2 ${field?.stacked ? '' : 'flex items-center'}`}>
                       {field?.radioValue?.map((node, i) => {
                         return (
                           <div className="flex items-center gap-2 my-1" key={i}>
@@ -111,7 +111,7 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
                     </div>
                   )}
                   {field.type === 'checkbox' && (
-                    <div className={`gap-x-6 mt-4 ${field?.stacked ? '' : 'flex items-center'}`}>
+                    <div className={`gap-x-6 mt-2 ${field?.stacked ? '' : 'flex items-center'}`}>
                       {field?.checkBoxValue?.map((node, i) => {
                         return (
                           <div className="flex items-center gap-2 my-1" key={i}>
@@ -132,7 +132,7 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
                     </div>
                   )}
                   {field.type === 'select' && (
-                    <div className="flex items-center gap-x-3 mt-4">
+                    <div className="flex items-center gap-x-3 mt-2">
                       <select
                         id={field.label.replace(/ /g, '') + i}
                         name={field.label}
@@ -164,7 +164,7 @@ export default function FormBuilder({ formSchema }: FormBuilderProps) {
           </>
         )}
         {formSchema?.formDisclaimer &&
-          <div className="mb-6 text-xs">
+          <div className="mb-3 text-xs">
             <ContentEditor 
               content={formSchema?.formDisclaimer}
             />
