@@ -75,9 +75,15 @@ export default function FeaturedInterview({
                                             src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3280&q=80"
                                             alt=""
                                         />
-                                        <div className="leading-6 mt-6 text-center">
-                                            <div className="font-semibold text-gray-900"><h3>Interview Title</h3></div>
-                                            <div className="mt-0.5 text-gray-600">Name</div>
+                                        <div className="leading-6 mt-6 text-left">
+                                            <div className="text-gray-900">
+                                                {node?.content &&
+                                                    <ContentEditor 
+                                                        content={node?.content}
+                                                    />
+                                                }
+                                            </div>
+                                            <div className="text-[#264495] mt-6 font-bold">{node?.value}</div>
                                         </div>
                                     </figcaption>
                                 </figure>
