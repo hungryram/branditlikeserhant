@@ -71,6 +71,26 @@ export default function CalltoActionTextImage({
         <div style={allStyles}>
             <div className="container">
                 <div className={`${Styles.ctaTextImageWrapper} space-y-10 ${reverseColumn ? 'flex-row-reverse' : ''}`}>
+                <div className="lg:w-1/2 relative">
+                        {image &&
+                            <Image
+                                src={image}
+                                alt={altText}
+                                placeholder={blurData ? 'blur' : 'empty'}
+                                blurDataURL={blurData}
+                                width={1824}
+                                height={1080}
+                                className="relative z-50"
+                            />
+                        }
+                        <div className="absolute inset-x-00 bottom-1/3 z-10 transform-gpu left-0 right-0 flex justify-center" aria-hidden="true">
+                            <div>
+                                <div
+                                    className="md:w-[28rem] w-60 h-52 rounded-full bg-gradient-to-tr from-[#181e2e] to-[#10193a] opacity-80 backdrop-filter blur-2xl"
+                                />
+                            </div>
+                        </div>
+                    </div>
                     <div className="lg:w-1/2">
                         {(content || primaryButtonLink || secondaryButtonLink) && (
                             <HeaderSection
@@ -152,26 +172,6 @@ export default function CalltoActionTextImage({
                                 </Transition>
                             </>
                         }
-                    </div>
-                    <div className="lg:w-1/2 relative">
-                        {image &&
-                            <Image
-                                src={image}
-                                alt={altText}
-                                placeholder={blurData ? 'blur' : 'empty'}
-                                blurDataURL={blurData}
-                                width={1824}
-                                height={1080}
-                                className="relative z-50"
-                            />
-                        }
-                        <div className="absolute inset-x-00 bottom-1/3 z-10 transform-gpu left-0 right-0 flex justify-center" aria-hidden="true">
-                            <div>
-                                <div
-                                    className="md:w-[28rem] w-60 h-52 rounded-full bg-gradient-to-tr from-[#181e2e] to-[#10193a] opacity-80 backdrop-filter blur-2xl"
-                                />
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
