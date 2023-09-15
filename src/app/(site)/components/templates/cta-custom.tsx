@@ -4,6 +4,10 @@ import HeaderSection from "./header-section";
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import FormBuilder from "./form-builder";
+import Script from "next/script";
+import { useEffect } from "react";
+import HubspotContactForm from "./hubspot-form";
+
 
 interface Props {
     image: string;
@@ -119,10 +123,11 @@ export default function CalltoActionCustom({
                                                 />
                                             </div>
                                         }
-                                        <div className="mt-6">
-                                            <FormBuilder
+                                        <div className="mt-6 mx-auto flex justify-center">
+                                            {/* <FormBuilder
                                                 formSchema={formSchema}
-                                            />
+                                            /> */}
+                                            <HubspotContactForm />
                                         </div>
                                     </div>
                                 </div>

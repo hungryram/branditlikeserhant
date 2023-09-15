@@ -37,7 +37,8 @@ html {
   padding-left: var(--button-x-padding);
   padding-right: var(--button-x-padding);
   padding-top: var(--button-y-padding);
-  padding-bottom: var(--button-y-padding);}
+  padding-bottom: var(--button-y-padding);
+}
 
 .secondary-button {
   @apply px-3 py-2 text-sm shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 uppercase;
@@ -135,4 +136,24 @@ input[type="radio"]:checked {
 
 .slide-down {
   transform: translateY(0%);
+}
+
+/* FORM */
+
+#hubspotForm input[type=text],
+input[type=email] {
+  background: #94C5E9;
+  border: 0;
+  @apply mt-2
+}
+
+input[type=submit] {
+  @apply px-3 py-2 mt-4 text-sm shadow-sm font-bold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 uppercase;
+  background-color: var(--primary-button-background);
+  color: var(--primary-button-text);
+  border-radius: var(--button-radius);
+  padding-left: var(--button-x-padding);
+  padding-right: var(--button-x-padding);
+  padding-top: var(--button-y-padding);
+  padding-bottom: var(--button-y-padding);
 }
