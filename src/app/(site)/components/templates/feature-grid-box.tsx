@@ -3,6 +3,7 @@ import * as HeroIcons from '@heroicons/react/24/outline';
 import HeaderSection from "./header-section";
 import Link from "next/link";
 import ContentEditor from "../util/content-editor";
+import Image from "next/image";
 
 interface Props {
     backgroundStyles: any;
@@ -65,9 +66,7 @@ export default function FeaturedGridBox({
                     />
                 )}
                 <div className={Styles.featureGridWrap}>
-                    <dl className={`grid rounded-sm grid-cols-1 lg:grid-cols-${columnNumber} ${content && 'mt-16'}`} style={{
-                        backgroundColor: gridBackgroundColor
-                    }}>
+                    <dl className={`grid rounded-sm grid-cols-1 lg:grid-cols-${columnNumber} gap-2 ${content && 'mt-16'}`}>
                         {blocks?.map((node: any) => {
 
                             const IconComponent = HeroIcons[node.icon as keyof typeof HeroIcons];
@@ -81,20 +80,29 @@ export default function FeaturedGridBox({
                                 (blockLink?._type === "team" && `/team/${node.blockLinking?.internalLink.slug}`) ||
                                 (node.blockLinking?.externalUrl && `${node.blockLinking?.externalUrl}`);
                             return (
-                                <div key={node._key} className={`${Styles.featureCardContainer} p-10`}>
-                                    <dt className={`${Styles.featureCard}`} style={{
+                                <div key={node._key} className={`${Styles.featureCardContainer} p-10 content`} style={{
+                                    backgroundColor: gridBackgroundColor
+                                }}>
+                                    <h3 className={`${Styles.featureCard} text-center flex justify-center`} style={{
                                         color: node?.headingColor?.hex
                                     }}>
-                                        {IconComponent && (
-                                            <IconComponent className="h-5 w-5 flex-none" style={{
-                                                color: node?.iconColor?.hex
-                                            }} aria-hidden="true" />
-                                        )}
                                         {node.value}
-                                    </dt>
+                                    </h3>
+                                    {node?.image?.asset?.url &&
+                                        <div className={`relative w-full h-80`}>
+                                            <Image
+                                                src={node?.image?.asset?.url}
+                                                fill={true}
+                                                alt={node?.image?.asset?.altText}
+                                                className="w-full rounded-sm object-cover h-96"
+                                                placeholder={node?.image?.asset?.lqip ? 'blur' : 'empty'}
+                                                blurDataURL={node?.image?.asset?.lqip}
+                                            />
+                                        </div>
+                                    }
                                     <dd className={Styles.featureCardContent}>
                                         {node?.content &&
-                                            <div style={{
+                                            <div className="content" style={{
                                                 color: node?.contentColor?.hex
                                             }}>
                                                 <ContentEditor
