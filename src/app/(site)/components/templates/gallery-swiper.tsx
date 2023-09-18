@@ -163,9 +163,7 @@ const GallerySwiper = ({
                     {images?.map((image: any, index: number) => (
                         <SwiperSlide
                             key={image._key}
-                            onClick={() => openLightbox(image?.asset?.url, index)}
-                            className="mb-4 cursor-pointer"
-                            aria-label={`Click to view image ${index + 1}${image?.asset?.altText ? ` of ${image?.asset?.altText}` : ''}`}
+                            className="mb-4"
                         >
                             <Image
                                 src={image?.asset?.url}
@@ -179,50 +177,6 @@ const GallerySwiper = ({
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                {lightboxOpen && (
-                    <Swiper
-                        slidesPerView={1}
-                        navigation={{
-                            nextEl: ".image-swiper-button-next-lightbox",
-                            enabled: true,
-                            prevEl: ".image-swiper-button-prev-lightbox",
-                            disabledClass: "swiper-button-disabled"
-                        }}
-                        className="!fixed !inset-0 !flex !items-center !justify-center z-50 bg-black bg-opacity-75"
-                        initialSlide={currentIndex} // Set the initial slide index
-                    >
-                        {images?.map((image: any, index: number) => (
-                            <SwiperSlide key={image.id} className="mx-auto relative !flex !items-center !justify-center">
-                                <Image
-                                    src={image?.asset?.url}
-                                    alt={image?.asset?.altText}
-                                    width={1000}
-                                    height={800}
-                                    sizes="100vw"
-                                    placeholder={image?.asset?.lqip ? 'blur' : 'empty'}
-                                    blurDataURL={image?.asset?.lqip}
-                                />
-                            </SwiperSlide>
-                        ))}
-                        <button
-                            className="absolute top-36 right-0 m-4 text-white cursor-pointer z-50"
-                            onClick={closeLightbox}
-                            aria-label="Close Lightbox"
-                        >
-                            <XMarkIcon className="h-8 w-8" />
-                        </button>
-                        <div className="swiper-button image-swiper-button-next-lightbox absolute right-0 top-1/2 flex items-center justify-center z-50">
-                            <IoIosArrowForward className="text-3xl" style={{
-                                color: '#ffffff'
-                            }} />
-                        </div>
-                        <div className="swiper-button image-swiper-button-prev-lightbox absolute left-0 top-1/2 flex items-center justify-center z-50">
-                            <IoIosArrowBack className="text-3xl" style={{
-                                color: '#ffffff'
-                            }} />
-                        </div>
-                    </Swiper>
-                )}
 
 
             </div>

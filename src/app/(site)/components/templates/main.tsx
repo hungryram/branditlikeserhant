@@ -314,6 +314,7 @@ export default function Main({
                                     reverseColumn={section?.reverseColumn}
                                     stepOneContent={section?.stepOnecontent}
                                     stepTwoContent={section?.stepTwocontent}
+                                    stepThreeContent={section?.stepThreecontent}
                                     altText={section?.imageData?.asset?.altText}
                                     blurData={section?.imageData?.asset?.lqip}
                                     modalButton={section?.modalButton}

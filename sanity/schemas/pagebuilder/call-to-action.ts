@@ -61,6 +61,13 @@ export default defineType({
             hidden: ({ parent }) => parent?.layoutType !== 'ctaCustom'
         },
         {
+            title: 'Step 3 Content',
+            name: 'stepThreecontent',
+            type: 'contentEditor',
+            group: 'content',
+            hidden: ({ parent }) => parent?.layoutType !== 'ctaCustom'
+        },
+        {
             title: 'Form Builder',
             name: 'formBuilder',
             type: 'formBuilder',

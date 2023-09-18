@@ -39,7 +39,7 @@ export default function CallToActionBanner({
   return (
     <div style={allStyles}>
       <div className="container">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto text-center">
           {(content || primaryButtonLink || secondaryButtonLink) ? (
             <HeaderSection
               content={content}

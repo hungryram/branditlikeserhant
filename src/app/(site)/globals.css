@@ -72,11 +72,11 @@ body .content h6 {
 }
 
 .content h3 {
-  @apply md:text-2xl text-lg;
+  @apply md:text-3xl text-2xl;
 }
 
 .content h4 {
-  @apply text-lg;
+  @apply text-xl;
 }
 
 .content p + p {

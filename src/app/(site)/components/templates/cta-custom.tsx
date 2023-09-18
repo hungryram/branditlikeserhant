@@ -30,6 +30,7 @@ interface Props {
     modalContent: any;
     stepOneContent: any;
     stepTwoContent: any;
+    stepThreeContent: any;
     formSchema: any;
     id: string;
 }
@@ -56,7 +57,8 @@ export default function CalltoActionCustom({
     stepOneContent,
     stepTwoContent,
     formSchema,
-    id
+    id,
+    stepThreeContent
 }: Props) {
 
     const styles = {
@@ -98,7 +100,7 @@ export default function CalltoActionCustom({
                             )}
                         </div>
                         <div className="mt-20 flow-root">
-                            <div className="isolate content -mt-16 grid max-w-sm grid-cols-1 gap-y-16 divide-y divide-gray-100 sm:mx-auto lg:mt-0 lg:max-w-none lg:grid-cols-2 lg:divide-x lg:divide-y-0 bg-white justify-center">
+                            <div className="isolate content -mt-16 grid grid-cols-1 gap-y-16 divide-y divide-gray-100 sm:mx-auto lg:mt-0 lg:grid-cols-3 lg:divide-x lg:divide-y-0 bg-white justify-center">
                                 <div className="p-10">
                                     <div className="w-8 h-8 border-[#264495] border-2 rounded-full flex items-center justify-center text-[#264495] mx-auto">
                                         <span>1</span>
@@ -129,6 +131,20 @@ export default function CalltoActionCustom({
                                             /> */}
                                             <HubspotContactForm />
                                         </div>
+                                    </div>
+                                </div>
+                                <div className="md:p-10 p-4">
+                                    <div className="w-8 h-8 border-[#264495] border-2 rounded-full flex items-center justify-center text-[#264495] mx-auto">
+                                        <span>3</span>
+                                    </div>
+                                    <div className="mt-6">
+                                        {stepThreeContent &&
+                                            <div className="text-center">
+                                                <ContentEditor
+                                                    content={stepThreeContent}
+                                                />
+                                            </div>
+                                        }
                                     </div>
                                 </div>
                             </div>

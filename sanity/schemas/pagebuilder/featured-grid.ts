@@ -65,6 +65,11 @@ export default defineType({
                             type: 'string'
                         },
                         {
+                            title: 'Sub Heading',
+                            name: 'subHeading',
+                            type: 'contentEditor'
+                        },
+                        {
                             title: 'Content',
                             name: 'content',
                             type: 'contentEditor',

@@ -55,7 +55,7 @@ const serializers = {
             return (
                 <span style={{ color: value?.hex }}>{children}</span>
             )
-        }
+        },
     }
 }
 

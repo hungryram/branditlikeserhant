@@ -101,6 +101,15 @@ export default function FeaturedGridBox({
                                         </div>
                                     }
                                     <dd className={Styles.featureCardContent}>
+                                    {node?.subHeading &&
+                                            <div className="content text-center" style={{
+                                                color: node?.contentColor?.hex
+                                            }}>
+                                                <ContentEditor
+                                                    content={node.subHeading}
+                                                />
+                                            </div>
+                                        }
                                         {node?.content &&
                                             <div className="content" style={{
                                                 color: node?.contentColor?.hex

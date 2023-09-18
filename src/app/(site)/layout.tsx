@@ -237,7 +237,7 @@ export default async function RootLayout({
         />
         <div className="fixed bottom-10 right-10 z-50">
             <div>
-                <a href="https://www.amazon.com/gp/product/0306923122" target="_blank" className="primary-button animate-pulse !shadow-lg">PRE-ORDER NOW!</a>
+                <a href="https://www.amazon.com/gp/product/0306923122" target="_blank" className="primary-button animate-pulse !shadow-lg !bg-[#94C5E9]">PRE-ORDER NOW!</a>
             </div>  
         </div>
       </body>
