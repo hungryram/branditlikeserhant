@@ -80,7 +80,7 @@ body .content h6 {
 }
 
 .content p + p {
-  @apply mt-6;
+  @apply mb-6;
 }
 
 .content p {

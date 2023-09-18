@@ -72,7 +72,7 @@ export default function FeaturedGridQuotes({
                                     backgroundColor: gridBackgroundColor
                                 }}>
                                     <svg
-                                        className="absolute left-0 top-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-[#94C5E9]"
+                                        className="absolute left-0 top-0 h-8 w-8 -translate-x-3 -translate-y-2 transform text-[#121276]"
                                         fill="currentColor"
                                         viewBox="0 0 32 32"
                                         aria-hidden="true"

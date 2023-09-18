@@ -3,6 +3,7 @@ import * as HeroIcons from '@heroicons/react/24/outline';
 import HeaderSection from "./header-section";
 import Link from "next/link";
 import ContentEditor from "../util/content-editor";
+import Image from "next/image";
 
 interface Props {
     backgroundStyles: any;
@@ -70,20 +71,25 @@ export default function FeaturedInterview({
                             return (
                                 <figure className="mx-auto max-w-2xl">
                                     <figcaption className="mt-10 flex items-center gap-x-6 flex-col">
-                                        <img
-                                            className="w-full bg-gray-50"
-                                            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3280&q=80"
-                                            alt=""
-                                        />
+                                        <div className="h-96 relative w-full">
+                                            <Image
+                                                className="w-full bg-gray-50 h-full object-cover"
+                                                src={node?.image?.asset?.url}
+                                                alt={node?.image?.asset?.altText}
+                                                fill={true}
+                                                placeholder={node?.image?.asset?.lqip ? 'blur' : 'empty'}
+                                                blurDataURL={node?.image?.asset?.lqip}
+                                            />
+                                        </div>
                                         <div className="leading-6 mt-6 text-left">
-                                            <div className="text-gray-900">
+                                            <div className="text-[#264495] mt-6 font-bold text-xl mb-3">{node?.value}</div>
+                                            <div className="text-gray-900 content">
                                                 {node?.content &&
-                                                    <ContentEditor 
+                                                    <ContentEditor
                                                         content={node?.content}
                                                     />
                                                 }
                                             </div>
-                                            <div className="text-[#264495] mt-6 font-bold">{node?.value}</div>
                                         </div>
                                     </figcaption>
                                 </figure>
