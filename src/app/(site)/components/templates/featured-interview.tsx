@@ -67,9 +67,9 @@ export default function FeaturedInterview({
                 )}
                 <div className={Styles.featureGridWrap}>
                     <div className={`grid rounded-sm grid-cols-1 lg:grid-cols-${columnNumber} gap-10 ${content && 'mt-16'}`}>
-                        {blocks?.map((node: any) => {
+                        {blocks?.map((node: any, i:number) => {
                             return (
-                                <div className="mx-auto max-w-2xl">
+                                <div className="mx-auto max-w-2xl" key={i}>
                                     <div className="mt-10 flex items-center gap-x-6 flex-col">
                                         <div className="h-96 relative w-full">
                                             <Image
