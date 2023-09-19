@@ -235,7 +235,7 @@ export default async function RootLayout({
           zillow={data.profileSettings?.social?.zillow}
           size={data.profileSettings?.social?.size}
         />
-        <div className="fixed bottom-10 right-10 z-50">
+        <div className="fixed bottom-10 right-10 z-50 left-0 md:text-right text-center">
             <div>
                 <a href="#buy" className="primary-button animate-pulse !shadow-lg !bg-[#94C5E9]">PRE-ORDER NOW!</a>
             </div>  

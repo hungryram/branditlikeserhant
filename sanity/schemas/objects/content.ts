@@ -131,6 +131,11 @@ import { AiOutlineFontColors } from "react-icons/ai"
             title: 'Button Link',
             name: 'buttonLink',
             type: 'string'
+          },
+          {
+            title: 'Alt Text',
+            name: 'altText',
+            type: 'string'
           }
         ]
       },

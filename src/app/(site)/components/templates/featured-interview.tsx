@@ -66,11 +66,11 @@ export default function FeaturedInterview({
                     />
                 )}
                 <div className={Styles.featureGridWrap}>
-                    <dl className={`grid rounded-sm grid-cols-1 lg:grid-cols-${columnNumber} gap-10 ${content && 'mt-16'}`}>
+                    <div className={`grid rounded-sm grid-cols-1 lg:grid-cols-${columnNumber} gap-10 ${content && 'mt-16'}`}>
                         {blocks?.map((node: any) => {
                             return (
-                                <figure className="mx-auto max-w-2xl">
-                                    <figcaption className="mt-10 flex items-center gap-x-6 flex-col">
+                                <div className="mx-auto max-w-2xl">
+                                    <div className="mt-10 flex items-center gap-x-6 flex-col">
                                         <div className="h-96 relative w-full">
                                             <Image
                                                 className="w-full bg-gray-50 h-full object-cover"
@@ -91,11 +91,11 @@ export default function FeaturedInterview({
                                                 }
                                             </div>
                                         </div>
-                                    </figcaption>
-                                </figure>
+                                    </div>
+                                </div>
                             )
                         })}
-                    </dl>
+                    </div>
                 </div>
             </div>
         </div>

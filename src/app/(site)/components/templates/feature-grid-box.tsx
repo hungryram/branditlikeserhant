@@ -66,7 +66,7 @@ export default function FeaturedGridBox({
                     />
                 )}
                 <div className={Styles.featureGridWrap}>
-                    <dl className={`grid rounded-sm grid-cols-1 lg:grid-cols-${columnNumber} gap-2 ${content && 'mt-16'}`}>
+                    <div className={`grid rounded-sm grid-cols-1 lg:grid-cols-${columnNumber} gap-2 ${content && 'mt-16'}`}>
                         {blocks?.map((node: any) => {
 
                             const IconComponent = HeroIcons[node.icon as keyof typeof HeroIcons];
@@ -132,7 +132,7 @@ export default function FeaturedGridBox({
                                 </div>
                             )
                         })}
-                    </dl>
+                    </div>
                 </div>
             </div>
         </div>

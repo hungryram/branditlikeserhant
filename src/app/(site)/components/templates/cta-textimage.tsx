@@ -78,8 +78,8 @@ export default function CalltoActionTextImage({
                                 alt={altText}
                                 placeholder={blurData ? 'blur' : 'empty'}
                                 blurDataURL={blurData}
-                                width={1824}
-                                height={1080}
+                                width={1000}
+                                height={0}
                                 className="relative z-50"
                             />
                         }
