@@ -270,6 +270,39 @@ export const pageBuilderData = groq`
 `
 
 const homeOtherDocumentSections = groq`
+'allServices': *[_type == 'services'][0..5] {
+  _id,
+  title,
+  slug,
+  detail,
+  'imageData': featuredImage {
+    asset->{
+      'altText':altText,
+      'lqip':metadata.lqip,
+      url
+    }
+  },
+},
+'allTeam': *[_type == 'team'][0...4] {
+  _id,
+  name,
+  position,
+  seo {
+    ...
+  },
+  slug,
+  socialAccounts {
+    ...
+  },
+  about,
+  'imageData': image {
+    asset->{
+      'altText':altText,
+      'lqip':metadata.lqip,
+      url
+    }
+  },
+},
 'allBlog': *[_type == 'blog'][0...2] {
   _id,
   title,
@@ -298,6 +331,39 @@ const homeOtherDocumentSections = groq`
 `
 
 const otherDocumentSections = groq`
+'allServices': *[_type == 'services'] {
+  _id,
+  title,
+  slug,
+  detail,
+  'imageData': featuredImage {
+    asset->{
+      'altText':altText,
+      'lqip':metadata.lqip,
+      url
+    }
+  },
+},
+'allTeam': *[_type == 'team'] {
+  _id,
+  name,
+  position,
+  seo {
+    ...
+  },
+  slug,
+  socialAccounts {
+    ...
+  },
+  about,
+  'imageData': image {
+    asset->{
+      'altText':altText,
+      'lqip':metadata.lqip,
+      url
+    }
+  },
+},
 'allBlog': *[_type == 'blog'][0..2] {
   _id,
   title,
@@ -457,6 +523,58 @@ export const blogPage = groq`
   }
 `
 
+// FOR app/services/page.tsx
+export const servicesPage = groq`
+  {
+    ${metaDataProfile}
+    'pageSetting': *[_type == 'pageSetting'][0]{
+      services {
+        ...
+      }
+    },
+    'services': *[_type == 'services']{
+      ...,
+      'imageData': featuredImage {
+        asset-> {
+          altText,
+          'lqip':metadata.lqip,
+          url
+        }
+      },
+    }
+  }
+`
+//  app/team/page.tsx
+export const teamPage = groq`
+  {
+    ${metaDataProfile}
+    'profileSettings': *[_type == 'profile'][0]{
+      settings {
+        websiteName
+      }
+    },
+    'pageSetting': *[_type == 'pageSetting'][0]{
+      team {
+        title,
+        content,
+        seo {
+          ...
+        }
+      }
+    },
+    'team': *[_type == 'team']{
+      ...,
+      'imageData': image {
+        asset-> {
+          altText,
+          'lqip':metadata.lqip,
+          url
+        }
+      },
+    }
+  }
+`
+
 //  app/legal/page.tsx
 export const legalPage = groq`
   {
@@ -530,6 +648,73 @@ export async function getPage(slug: string) {
           ...,
           ${pageBuilderData}
       }
+      }
+    }
+    `,
+    { slug }
+  )
+}
+
+// 
+// FOR /app/services/[slug]/page.tsx
+// 
+export async function getServices(slug: string) {
+  return client.fetch(groq`
+  {
+    ${metaDataProfile}
+    ${otherDocumentSections}
+    'services': *[_type == "services" && slug.current == $slug][0]{
+      _id,
+      title,
+      'imageData': featuredImage {
+        asset->{
+          url,
+        }
+      },
+      seo {
+        ...
+      },
+      "slug": slug.current,
+      pageBuilder[]{
+        ...,
+        ${pageBuilderData}
+    }
+    }
+  }
+  `,
+    { slug }
+  )
+}
+
+// 
+// FOR /app/team/[slug]/page.tsx
+// 
+export async function getTeam(slug: string) {
+  return client.fetch(groq`
+    {
+      ${metaDataProfile}
+      'team': *[_type == "team" && slug.current == $slug][0]{
+        _id,
+        name,
+        about,
+        "slug": slug.current,
+        position,
+        contactInformation {
+          ...
+        },
+        socialAccounts {
+          ...
+        },
+        seo {
+          ...
+        },
+        'imageData': image {
+          asset->{
+            url,
+            altText,
+            'lqip': metadata.lqip
+          }
+        }
       }
     }
     `,
@@ -617,6 +802,14 @@ export const getAllPages = groq`
     _updatedAt
   },
   'blog': *[_type == "blog"]{
+    'slug': slug.current,
+    _updatedAt
+  },
+  'services': *[_type == "services"]{
+    'slug': slug.current,
+    _updatedAt
+  },
+  'team': *[_type == "team"]{
     'slug': slug.current,
     _updatedAt
   },
