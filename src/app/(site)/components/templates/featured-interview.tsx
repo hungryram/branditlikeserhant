@@ -1,7 +1,5 @@
 import Styles from "./feature-section.module.css"
-import * as HeroIcons from '@heroicons/react/24/outline';
 import HeaderSection from "./header-section";
-import Link from "next/link";
 import ContentEditor from "../util/content-editor";
 import Image from "next/image";
 
@@ -35,7 +33,6 @@ export default function FeaturedInterview({
     secondaryButtonLink,
     secondaryButtonText,
     secondaryButtonStyle,
-    gridBackgroundColor,
     offsetTop,
     paddingTop,
     paddingBottom,

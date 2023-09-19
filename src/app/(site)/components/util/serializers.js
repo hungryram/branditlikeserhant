@@ -39,7 +39,7 @@ const serializers = {
             return (
                 <div className="my-6">
                     <a href={value.buttonLink} target="_blank">
-                        <img src={urlForImage(value.image).url()} alt={value.altText} width={150} height={150} className="my-6 mx-auto hover:w-[170px] transition-all duration-500" />
+                        <img src={urlForImage(value.image).quality(30).url()} alt={value.altText} width={150} height={150} loading="lazy" className="my-6 mx-auto hover:w-[170px] transition-all duration-500" />
                     </a>
                 </div>
             )

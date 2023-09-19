@@ -5,7 +5,6 @@ import CalltoActionLeftText from "./cta-lefttext";
 import CalltoActionTextImage from "./cta-textimage";
 import FeatureSection from "./feature-section";
 import LogoCloudSection from "./logo-cloud-section";
-import PricingSection from "./pricing-section";
 import TestimonialSection from "./testimonials-section";
 import ContactPage from "./contact-page";
 import ContentSimple from "./content-simple";
@@ -367,21 +366,6 @@ export default function Main({
                             key={section?._key}
                             content={section?.content}
                             images={section?.childImage}
-                            textAlign={section?.textAlign}
-                            {...settingsSchema}
-                        />
-                    );
-                }
-
-                if (section._type === 'pricing') {
-                    return (
-                        <PricingSection
-                            key={section?._key}
-                            packages={section?.packages}
-                            packageTextColor={section?.packageTextColor?.hex}
-                            packageBackground={section?.packageBackground?.hex}
-                            columnNumber={section?.columnNumber}
-                            content={section?.content}
                             textAlign={section?.textAlign}
                             {...settingsSchema}
                         />
