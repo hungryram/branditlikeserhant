@@ -1,11 +1,5 @@
-import { Inter } from 'next/font/google';
 import localFont from "next/font/local"
  
-export const interFont = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--body-font'
-});
  
 // Font files can be colocated inside of `app`
 export const HelveticaNue = localFont({

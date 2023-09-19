@@ -100,7 +100,7 @@ export default function FeaturedGridBox({
                                             />
                                         </div>
                                     }
-                                    <dd className={Styles.featureCardContent}>
+                                    <div className={Styles.featureCardContent}>
                                     {node?.subHeading &&
                                             <div className="content text-center" style={{
                                                 color: node?.contentColor?.hex
@@ -128,7 +128,7 @@ export default function FeaturedGridBox({
                                                 </Link>
                                             </p>
                                         }
-                                    </dd>
+                                    </div>
                                 </div>
                             )
                         })}

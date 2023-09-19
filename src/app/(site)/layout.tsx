@@ -5,10 +5,9 @@ import './globals.css'
 import { appearance, mainLayoutProfile } from '../../../lib/groq-data'
 import { Metadata } from 'next';
 import GoogleAnalytics from './components/global/analytics'
-import { HelveticaNue, HouseSlant, SignPainter, interFont } from '../fonts'
+import { HelveticaNue, HouseSlant, SignPainter } from '../fonts'
 import Pixel from './components/global/pixel'
 import NavbarWide from './components/global/navbar-wide'
-import Script from 'next/script'
 
 export const revalidate = 0
 
@@ -63,49 +62,6 @@ export default async function RootLayout({
 
   const data = await client.fetch(appearance, { next: { revalidate: 60 } })
 
-  const localBusiness = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    ...(data?.profileSettings?.company_name && { "name": data?.profileSettings?.company_name }),
-    ...(data?.profileSettings?.seo?.meta_description && { "description": data?.profileSettings?.seo?.meta_description }),
-    ...(data?.profileSettings?.settings?.websiteName && { "url": data?.profileSettings?.settings?.websiteName }),
-    ...(data.appearances?.branding?.logo?.asset?.url && { "logo": data.appearances?.branding?.logo?.asset?.url }),
-    ...(data?.profileSettings?.seo?.imageData?.asset?.url && { "image": data?.profileSettings?.seo?.imageData?.asset?.url }),
-    "address": {
-      "@type": "PostalAddress",
-      ...(data?.profileSettings?.address?.address && { "streetAddress": data?.profileSettings?.address?.address }),
-      ...(data?.profileSettings?.address?.city && { "addressLocality": data?.profileSettings?.address?.city }),
-      ...(data?.profileSettings?.address?.state && { "addressRegion": data?.profileSettings?.address?.state }),
-      ...(data?.profileSettings?.address?.zip_code && { "postalCode": data?.profileSettings?.address?.zip_code }),
-      ...(data?.profileSettings?.address?.addressCountry && { "addressCountry": data?.profileSettings?.address?.addressCountry })
-    },
-    "contactPoint": [
-      {
-        "@type": "ContactPoint",
-        ...(data?.profileSettings?.contact_information?.office_number && { "telephone": data?.profileSettings?.contact_information?.office_number }),
-        ...(data?.profileSettings?.contact_information?.office_number && { "ContactType": "Office Phone" }),
-        ...(data?.profileSettings?.contact_information?.email && { "email": data?.profileSettings?.contact_information?.email }),
-      },
-      {
-        "@type": "ContactPoint",
-        ...(data?.profileSettings?.contact_information?.phone_number && { "telephone": data?.profileSettings?.contact_information?.phone_number }),
-        ...(data?.profileSettings?.contact_information?.phone_number && { "ContactType": "Direct Phone" }),
-      },
-    ],
-    "sameAs": [
-      ...(data?.profileSettings?.social?.facebook ? [data.profileSettings.social.facebook] : []),
-      ...(data?.profileSettings?.social?.twitter ? [data.profileSettings.social.twitter] : []),
-      ...(data?.profileSettings?.social?.instagram ? [data.profileSettings.social.instagram] : []),
-      ...(data?.profileSettings?.social?.youtube ? [data.profileSettings.social.youtube] : []),
-      ...(data?.profileSettings?.social?.reddit ? [data.profileSettings.social.reddit] : []),
-      ...(data?.profileSettings?.social?.linkedin ? [data.profileSettings.social.linkedin] : []),
-      ...(data?.profileSettings?.social?.yelp ? [data.profileSettings.social.yelp] : []),
-      ...(data?.profileSettings?.social?.pinterest ? [data.profileSettings.social.pinterest] : []),
-      ...(data?.profileSettings?.social?.tiktok ? [data.profileSettings.social.tiktok] : []),
-      ...(data?.profileSettings?.social?.zillow ? [data.profileSettings.social.zillow] : [])
-    ]
-  };
-
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -133,19 +89,15 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <body className={`${HelveticaNue.variable} ${HouseSlant.variable}`}>
       {data?.profileSettings?.settings?.googleID &&
         <GoogleAnalytics GA_TRACKING_ID={data?.profileSettings?.settings?.googleID} />
       }
-      <body className={`${interFont.variable} ${HelveticaNue.variable} ${HouseSlant.variable}`}>
         {data?.profileSettings?.settings?.facebookPixel &&
           <Pixel
             facebookPixel={data?.profileSettings?.settings?.facebookPixel}
           />
         }
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}

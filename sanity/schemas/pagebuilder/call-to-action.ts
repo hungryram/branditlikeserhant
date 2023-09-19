@@ -47,6 +47,12 @@ export default defineType({
             hidden: ({ parent }) => parent?.layoutType === "banner" || parent?.layoutType === "ButtonRightTextLeft"
         },
         {
+            title: 'Image Priority',
+            name: 'priority',
+            type: 'boolean',
+            hidden: ({ parent }) => parent?.layoutType === "banner" || parent?.layoutType === "ButtonRightTextLeft"
+        },
+        {
             title: 'Step 1 Content',
             name: 'stepOnecontent',
             type: 'contentEditor',

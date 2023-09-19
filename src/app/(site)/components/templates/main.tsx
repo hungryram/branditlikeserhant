@@ -295,6 +295,7 @@ export default function Main({
                                 <CalltoActionTextImage
                                     key={section?._key}
                                     image={section?.imageData?.asset?.url}
+                                    priority={section?.priority}
                                     content={section?.content}
                                     reverseColumn={section?.reverseColumn}
                                     altText={section?.imageData?.asset?.altText}

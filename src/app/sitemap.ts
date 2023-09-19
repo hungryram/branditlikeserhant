@@ -19,17 +19,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: page?._updatedAt,
   }));
 
-  // Generate the sitemap for team
-  const teamUrl = pages?.team?.map((page: any) => ({
-    url: `${websiteName}/team/${page.slug}`,
-    lastModified: page?._updatedAt,
-  }));
-
-  // Generate the sitemap for services
-  const servicesUrl = pages?.services?.map((page: any) => ({
-    url: `${websiteName}/services/${page.slug}`,
-    lastModified: page?._updatedAt,
-  }));
 
   // Generate the sitemap for pages
   const pageUrl = pages?.pages?.map((page: any) => ({
@@ -63,7 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   // Concatenate the dynamic and static sitemap entries
-  const allEntries = [...staticEntries, ...blogUrl, ...legalUrl, ...pageUrl, ...teamUrl, ...servicesUrl];
+  const allEntries = [...staticEntries, ...blogUrl, ...legalUrl, ...pageUrl];
 
   return allEntries;
 }

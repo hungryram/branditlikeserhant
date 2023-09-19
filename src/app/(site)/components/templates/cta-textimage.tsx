@@ -1,12 +1,9 @@
-'use client'
 import Image from "next/image";
-import ContentEditor from "../util/content-editor";
-import { ctaData } from "../../../../../sample/data";
+// import ContentEditor from "../util/content-editor";
 import Styles from "./cta-textimage.module.css"
 import HeaderSection from "./header-section";
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment, useState } from 'react'
-import { urlForImage } from "../../../../../sanity/lib/image";
+// import { Dialog, Transition } from '@headlessui/react'
+// import { Fragment, useState } from 'react'
 
 interface Props {
     image: string;
@@ -27,6 +24,7 @@ interface Props {
     modalButton: string;
     modalImage: string;
     modalContent: any;
+    priority: boolean
 }
 
 export default function CalltoActionTextImage({
@@ -47,7 +45,8 @@ export default function CalltoActionTextImage({
     textAlign,
     modalButton,
     modalImage,
-    modalContent
+    modalContent,
+    priority
 }: Props) {
 
     const styles = {
@@ -57,15 +56,16 @@ export default function CalltoActionTextImage({
 
     const allStyles = { ...backgroundStyles, ...styles }
 
-    let [isOpen, setIsOpen] = useState(false)
+    // let [isOpen, setIsOpen] = useState(false)
 
-    function closeModal() {
-        setIsOpen(false)
-    }
+    // function closeModal() {
+    //     setIsOpen(false)
+    // }
 
-    function openModal() {
-        setIsOpen(true)
-    }
+    // function openModal() {
+    //     setIsOpen(true)
+    // }
+
 
     return (
         <div style={allStyles}>
@@ -81,6 +81,7 @@ export default function CalltoActionTextImage({
                                 width={1000}
                                 height={0}
                                 className="relative z-50"
+                                priority={priority ? true : false}
                             />
                         }
                         <div className="absolute inset-x-00 bottom-1/3 z-10 transform-gpu left-0 right-0 flex justify-center" aria-hidden="true">
@@ -106,7 +107,7 @@ export default function CalltoActionTextImage({
                                 secondaryButtonStyle={secondaryButtonStyle}
                             />
                         )}
-                        {modalButton &&
+                        {/* {modalButton &&
                             <>
                                 <div className="mt-10">
                                     <button
@@ -171,7 +172,7 @@ export default function CalltoActionTextImage({
                                     </Dialog>
                                 </Transition>
                             </>
-                        }
+                        } */}
                     </div>
                 </div>
             </div>
