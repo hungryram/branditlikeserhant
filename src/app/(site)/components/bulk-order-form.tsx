@@ -95,7 +95,7 @@ export default function BulkOrderForm({
                         <div className="isolate content -mt-16 grid grid-cols-1 gap-y-8 sm:mx-auto lg:mt-0 lg:grid-cols-2 lg:divide-x lg:divide-y-0 bg-white justify-center">
                             <div className="p-10">
                                 <div className="bg-blue-800 text-white p-4 w-full content text-center">
-                                    <h3 className="!m-0">STEP ONE</h3>
+                                    <h3 className="!m-0">STEP ONE - YOUR DETAILS</h3>
                                 </div>
                                 <div className="mt-6">
                                     <div>
@@ -160,7 +160,7 @@ export default function BulkOrderForm({
                             </div>
                             <div className="md:p-10 p-4">
                                 <div className="bg-blue-800 text-white p-4 w-full content text-center">
-                                    <h3 className="!m-0">STEP TWO</h3>
+                                    <h3 className="!m-0">STEP TWO - SHIPPING DETAILS</h3>
                                 </div>
                                 <div className="mt-6">
                                     <section aria-labelledby="shipping-heading">
@@ -262,7 +262,7 @@ export default function BulkOrderForm({
                             </div>
                             <div className="col-span-3 md:p-10 p-4">
                                 <div className="bg-blue-800 text-white p-4 w-full content text-center">
-                                    <h3 className="!m-0">STEP THREE</h3>
+                                    <h3 className="!m-0">STEP THREE - BILLING INFO</h3>
                                 </div>
                                 <div className="mt-6 grid grid-cols-4 gap-x-4 gap-y-6">
                                     <div className="col-span-4">
@@ -328,7 +328,7 @@ export default function BulkOrderForm({
                             </div>
                             <div className="col-span-3 md:p-10 p-4">
                                 <div className="bg-blue-800 text-white p-4 w-full content text-center">
-                                    <h3 className="!m-0">STEP FOUR</h3>
+                                    <h3 className="!m-0">STEP FOUR - SELECT YOUR PACKAGE</h3>
                                 </div>
                                 <div className="border-t border-gray-200 pt-4">
                                     <RadioGroup value={selectedDeliveryMethod} onChange={setSelectedDeliveryMethod}>
