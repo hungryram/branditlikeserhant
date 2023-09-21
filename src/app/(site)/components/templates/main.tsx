@@ -31,6 +31,7 @@ import FeaturedGridQuotes from "./featured-section-quote";
 import CustomBanner from "./custom-banner";
 import CalltoActionCustom from "./cta-custom";
 import FeaturedInterview from "./featured-interview";
+import BulkOrderForm from "../bulk-order-form";
 
 // PRODUCTION
 
@@ -662,6 +663,21 @@ export default function Main({
                                 }}
                             />
                         </div>
+                    )
+                }
+
+                if (section._type === 'bulkOrderForm') {
+                    return (
+                        <BulkOrderForm
+                            key={section?._key}
+                            // formSchema={section?.formBuilder}
+                            content={section?.content}
+                            textAlign={section?.textAlign}
+                            image={section?.imageData?.asset?.url}
+                            altText={section?.imageData?.asset?.altText}
+                            blurData={section?.imageData?.asset?.lqip}
+                            {...settingsSchema}
+                        />
                     )
                 }
 

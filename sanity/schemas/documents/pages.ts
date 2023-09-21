@@ -46,7 +46,7 @@ export default defineType({
                 {type: 'testimonialBuilder'},
                 {type: 'teamDisplay'},
                 {type: 'blogDisplay'},
-                {type: 'servicesDisplay'},
+                {type: 'bulkOrderForm'},
                 {type: 'leadForm'},
             ]
         },

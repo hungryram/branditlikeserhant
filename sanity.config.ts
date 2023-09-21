@@ -61,6 +61,7 @@ import teamSectionBuilder from './sanity/schemas/pagebuilder/team-section'
 import blogSectionBuilder from './sanity/schemas/pagebuilder/blog-section'
 import servicesSectionBuilder from './sanity/schemas/pagebuilder/service-section'
 import contentBuilder from './sanity/schemas/pagebuilder/content'
+import bulkOrderForm from './sanity/schemas/pagebuilder/bulk-order-form'
 
 
 export default defineConfig({
@@ -120,6 +121,7 @@ export default defineConfig({
       servicesSectionBuilder,
       contentBuilder,
       logosBuilder,
+      bulkOrderForm
     ]
   },
   plugins: [

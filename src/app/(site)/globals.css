@@ -143,7 +143,6 @@ input[type="radio"]:checked {
 #hubspotForm input[type=text],
 input[type=email] {
   background: #94C5E9;
-  border: 0;
   @apply mt-2 w-full
 }
 
