@@ -39,11 +39,11 @@ export async function generateMetadata(): Promise<Metadata> {
       description: data?.profileSettings?.seo?.meta_description,
       creator: '@' + data?.profileSettings?.seo?.twitterHandle,
     },
-    // icons: {
-    //   icon: data.appearances?.branding?.favicon?.asset?.url,
-    //   shortcut: data.appearances?.branding?.favicon?.asset?.url,
-    //   apple: data.appearances?.branding?.favicon?.asset?.url,
-    // },
+    icons: {
+      icon: data.appearances?.branding?.favicon?.asset?.url,
+      shortcut: data.appearances?.branding?.favicon?.asset?.url,
+      apple: data.appearances?.branding?.favicon?.asset?.url,
+    },
     verification: {
       google: data?.profileSettings?.settings?.googleVerification
     },

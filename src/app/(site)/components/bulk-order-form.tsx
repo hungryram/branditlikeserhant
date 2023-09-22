@@ -46,9 +46,6 @@ export default function BulkOrderForm({
         { id: 2, title: '300 Copies', turnaround: 'Group Dinner with Ryan Serhant Ahead of Summit X-Hour, In Person Branding Summit, Tour of Signature Listing With Ryan Serhant Signed Book', price: '$9,000' },
     ]
 
-    function classNames(...classes) {
-        return classes.filter(Boolean).join(' ')
-    }
 
     const [selectedDeliveryMethod, setSelectedDeliveryMethod] = useState(deliveryMethods[0])
 
@@ -333,7 +330,7 @@ export default function BulkOrderForm({
                                     <h4 className="!m-0">STEP FOUR - SELECT YOUR PACKAGE</h4>
                                 </div>
                                 <div className="border-t border-gray-200 pt-4">
-                                    <RadioGroup value={selectedDeliveryMethod} onChange={setSelectedDeliveryMethod}>
+                                    {/* <RadioGroup value={selectedDeliveryMethod} onChange={setSelectedDeliveryMethod}>
                                         <RadioGroup.Label className="text-lg font-medium text-gray-900">Number of Copies</RadioGroup.Label>
 
                                         <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-3 sm:gap-x-4">
@@ -341,13 +338,6 @@ export default function BulkOrderForm({
                                                 <RadioGroup.Option
                                                     key={deliveryMethod.id}
                                                     value={deliveryMethod}
-                                                    className={({ checked, active }) =>
-                                                        classNames(
-                                                            checked ? 'border-transparent' : 'border-gray-300',
-                                                            active ? 'ring-2 ring-indigo-500' : '',
-                                                            'relative flex cursor-pointer rounded-lg border bg-white p-4 shadow-sm focus:outline-none'
-                                                        )
-                                                    }
                                                 >
                                                     {({ checked, active }) => (
                                                         <>
@@ -369,11 +359,6 @@ export default function BulkOrderForm({
                                                             </span>
                                                             {checked ? <CheckCircleIcon className="h-5 w-5 text-blue-700" aria-hidden="true" /> : null}
                                                             <span
-                                                                className={classNames(
-                                                                    active ? 'border' : 'border-2',
-                                                                    checked ? 'border-indigo-500' : 'border-transparent',
-                                                                    'pointer-events-none absolute -inset-px rounded-lg'
-                                                                )}
                                                                 aria-hidden="true"
                                                             />
                                                         </>
@@ -381,7 +366,7 @@ export default function BulkOrderForm({
                                                 </RadioGroup.Option>
                                             ))}
                                         </div>
-                                    </RadioGroup>
+                                    </RadioGroup> */}
                                 </div>
                                 <div className="flex justify-center mt-10">
                                     <button className="text-white w-80 bg-accent py-7">ORDER NOW</button>
