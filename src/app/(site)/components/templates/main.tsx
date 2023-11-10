@@ -32,6 +32,7 @@ import CustomBanner from "./custom-banner";
 import CalltoActionCustom from "./cta-custom";
 import FeaturedInterview from "./featured-interview";
 import BulkOrderForm from "../bulk-order-form";
+import PricingSection from "./pricing-section";
 
 // PRODUCTION
 
@@ -250,6 +251,22 @@ export default function Main({
                                 />
                             }
                         </>
+                    );
+                }
+
+                if (section._type === 'pricing') {
+                    return (
+                        <PricingSection
+                            key={section?._key}
+                            packages={section?.packages}
+                            packageTextColor={section?.packageTextColor?.hex}
+                            packageBackground={section?.packageBackground?.hex}
+                            columnNumber={section?.columnNumber}
+                            content={section?.content}
+                            textAlign={section?.textAlign}
+                            id={section?.id}
+                            {...settingsSchema}
+                        />
                     );
                 }
 

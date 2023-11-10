@@ -1,0 +1,9 @@
+.pricingGrid {
+    @apply gap-y-8 mx-auto gap-x-10
+}
+
+.pricingCta {
+    @apply mt-10 block rounded-md px-3 py-2 text-center text-sm font-semibold leading-6 shadow-sm;
+    background-color: var(--primary-button-background);
+    color: var(--primary-button-text);
+}
