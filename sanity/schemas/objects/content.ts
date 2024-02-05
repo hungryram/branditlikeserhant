@@ -136,6 +136,11 @@ import { AiOutlineFontColors } from "react-icons/ai"
             title: 'Alt Text',
             name: 'altText',
             type: 'string'
+          },
+          {
+            title: 'Inline',
+            name: 'inline',
+            type: 'boolean'
           }
         ]
       },

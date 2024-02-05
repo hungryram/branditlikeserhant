@@ -37,9 +37,9 @@ const serializers = {
         },
         imageLink: ({ value, children }) => {
             return (
-                <div className="my-6">
+                <div className={`${value?.inline && 'inline-block mx-4 my-2 md:w-36 md:h-36'}`}>
                     <a href={value.buttonLink} target="_blank">
-                        <img src={urlForImage(value.image).quality(30).url()} alt={value.altText} width={150} height={150} loading="lazy" className="my-6 mx-auto hover:w-[170px] transition-all duration-500" />
+                        <img src={urlForImage(value.image).quality(30).url()} alt={value.altText} width={150} height={150} loading="lazy" className="object-contain" />
                     </a>
                 </div>
             )
